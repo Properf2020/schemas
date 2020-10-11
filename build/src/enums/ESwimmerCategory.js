@@ -1,0 +1,28 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ESwimmerCategory = void 0;
+var ESwimmerCategory;
+(function (ESwimmerCategory) {
+    ESwimmerCategory["AVENIRS"] = "AVENIRS";
+    ESwimmerCategory["POUSSINS"] = "POUSSINS";
+    ESwimmerCategory["BENJAMINS"] = "BENJAMINS";
+    ESwimmerCategory["MINIMES"] = "MINIMES";
+    ESwimmerCategory["CADETS"] = "CADETS";
+    ESwimmerCategory["JUNIORS"] = "JUNIORS";
+    ESwimmerCategory["SENIORS"] = "SENIORS";
+    ESwimmerCategory["SENIORS_C1"] = "SENIORS_C1";
+    ESwimmerCategory["SENIORS_C2"] = "SENIORS_C2";
+    ESwimmerCategory["SENIORS_C3"] = "SENIORS_C3";
+    ESwimmerCategory["SENIORS_C4"] = "SENIORS_C4";
+    ESwimmerCategory["SENIORS_C5"] = "SENIORS_C5";
+    ESwimmerCategory["SENIORS_C6"] = "SENIORS_C6";
+    ESwimmerCategory["SENIORS_C7"] = "SENIORS_C7";
+    ESwimmerCategory["SENIORS_C8"] = "SENIORS_C8";
+    ESwimmerCategory["SENIORS_C9"] = "SENIORS_C9";
+    ESwimmerCategory["SENIORS_C10"] = "SENIORS_C10";
+    ESwimmerCategory["SENIORS_C11"] = "SENIORS_C11";
+    ESwimmerCategory["SENIORS_C12"] = "SENIORS_C12";
+    ESwimmerCategory["SENIORS_C13"] = "SENIORS_C13";
+    ESwimmerCategory["SENIORS_C14"] = "SENIORS_C14";
+    ESwimmerCategory["SENIORS_C15"] = "SENIORS_C15";
+})(ESwimmerCategory = exports.ESwimmerCategory || (exports.ESwimmerCategory = {}));

@@ -1,0 +1,27 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ESeason = void 0;
+var ESeason;
+(function (ESeason) {
+    ESeason["S_2000"] = "2000";
+    ESeason["S_2001"] = "2001";
+    ESeason["S_2002"] = "2002";
+    ESeason["S_2003"] = "2003";
+    ESeason["S_2004"] = "2004";
+    ESeason["S_2005"] = "2005";
+    ESeason["S_2006"] = "2006";
+    ESeason["S_2007"] = "2007";
+    ESeason["S_2008"] = "2008";
+    ESeason["S_2009"] = "2009";
+    ESeason["S_2010"] = "2010";
+    ESeason["S_2011"] = "2011";
+    ESeason["S_2012"] = "2012";
+    ESeason["S_2013"] = "2013";
+    ESeason["S_2014"] = "2014";
+    ESeason["S_2015"] = "2015";
+    ESeason["S_2016"] = "2016";
+    ESeason["S_2017"] = "2017";
+    ESeason["S_2018"] = "2018";
+    ESeason["S_2019"] = "2019";
+    ESeason["S_2020"] = "2020";
+})(ESeason = exports.ESeason || (exports.ESeason = {}));
