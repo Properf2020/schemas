@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserPreference = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 let UserPreference = class UserPreference {
     constructor(receive_sms, receive_email) {
@@ -17,6 +18,14 @@ let UserPreference = class UserPreference {
         this.receive_sms = receive_sms;
     }
 };
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], UserPreference.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], UserPreference.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", Boolean)

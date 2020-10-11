@@ -10,19 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseStats = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
-let BaseStats = class BaseStats extends _1.BaseEntity {
-};
+class BaseStats extends _1.BaseEntity {
+    constructor(performance) {
+        super();
+        this.performance = performance;
+    }
+}
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], BaseStats.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], BaseStats.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
-    __metadata("design:type", _1.Note)
+    __metadata("design:type", Object)
 ], BaseStats.prototype, "performance", void 0);
-__decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", _1.Note)
-], BaseStats.prototype, "amelioration", void 0);
-BaseStats = __decorate([
-    mikro_orm_1.Entity()
-], BaseStats);
 exports.BaseStats = BaseStats;

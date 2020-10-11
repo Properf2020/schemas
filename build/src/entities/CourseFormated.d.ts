@@ -1,6 +1,9 @@
+import { ObjectId } from "@mikro-orm/mongodb";
 import { BaseEntity, Swimmer, Club, SwimmerNote } from ".";
 import { ESeason, ESwimmerCategory, EBassin } from "../enums";
 export declare class CourseFormated extends BaseEntity {
+    _id: ObjectId;
+    id: string;
     time: String;
     swimmer: Swimmer;
     club: Club;

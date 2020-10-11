@@ -1,15 +1,22 @@
-import { Collection, Entity, OneToMany, Property } from '@mikro-orm/core';
+import { Collection, Entity, OneToMany, PrimaryKey, Property, SerializedPrimaryKey } from '@mikro-orm/core';
+import { ObjectId } from '@mikro-orm/mongodb';
 import { Enum, ManyToMany } from 'mikro-orm';
 import { BaseEntity, ClubRole, Swimmer, Bill } from '.';
 import { EPlan } from '../enums';
 import { ClubRepository } from '../repositories/ClubRepository';
 
-@Entity({ customRepository: () => ClubRepository})
+@Entity({ customRepository: () => ClubRepository })
 export class Club extends BaseEntity {
+
+  @PrimaryKey()
+  _id!: ObjectId;
+
+  @SerializedPrimaryKey()
+  id!: string;
 
   @Property()
   name: string;
-  
+
   @ManyToMany(() => ClubRole)
   users = new Collection<ClubRole>(this);
 
@@ -19,8 +26,8 @@ export class Club extends BaseEntity {
   @Enum()
   plan?: EPlan;
 
-  @OneToMany(() => Bill, bill => bill.club)
-  bills = new Collection<Bill>(this);
+  // @OneToMany(() => Bill, bill => bill.club)
+  // bills = new Collection<Bill>(this);
 
   constructor(name: string) {
     super();

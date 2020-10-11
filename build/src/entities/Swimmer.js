@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Swimmer = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const SwimmerRepository_1 = require("../repositories/SwimmerRepository");
 let Swimmer = class Swimmer extends _1.BaseEntity {
     constructor(firstName, lastName, birthDate, seniority, club) {
         super();
+        this.user = null;
         this.records = new _1.SwimmerRecord();
         this.marges = new _1.SwimmerMarge();
         this.notes = new _1.SwimmerNote();
@@ -27,6 +29,14 @@ let Swimmer = class Swimmer extends _1.BaseEntity {
         this.club = club;
     }
 };
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], Swimmer.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], Swimmer.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
@@ -45,7 +55,7 @@ __decorate([
 ], Swimmer.prototype, "seniority", void 0);
 __decorate([
     mikro_orm_1.Property(),
-    __metadata("design:type", _1.User)
+    __metadata("design:type", Object)
 ], Swimmer.prototype, "user", void 0);
 __decorate([
     mikro_orm_1.Property(),
@@ -57,15 +67,15 @@ __decorate([
 ], Swimmer.prototype, "club", void 0);
 __decorate([
     mikro_orm_1.Property(),
-    __metadata("design:type", _1.SwimmerRecord)
+    __metadata("design:type", Object)
 ], Swimmer.prototype, "records", void 0);
 __decorate([
     mikro_orm_1.Property(),
-    __metadata("design:type", _1.SwimmerMarge)
+    __metadata("design:type", Object)
 ], Swimmer.prototype, "marges", void 0);
 __decorate([
     mikro_orm_1.Property(),
-    __metadata("design:type", _1.SwimmerNote)
+    __metadata("design:type", Object)
 ], Swimmer.prototype, "notes", void 0);
 __decorate([
     mikro_orm_1.OneToMany(() => _1.CourseFormated, course => course.swimmer),

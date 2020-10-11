@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bill = void 0;
 const core_1 = require("@mikro-orm/core");
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
@@ -26,7 +27,15 @@ let Bill = class Bill extends _1.BaseEntity {
     }
 };
 __decorate([
-    core_1.Property(),
+    core_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], Bill.prototype, "_id", void 0);
+__decorate([
+    core_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], Bill.prototype, "id", void 0);
+__decorate([
+    core_1.Property({ type: _1.Club }),
     __metadata("design:type", _1.Club)
 ], Bill.prototype, "club", void 0);
 __decorate([

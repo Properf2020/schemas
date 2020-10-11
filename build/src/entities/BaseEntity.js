@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaseEntity = void 0;
 const core_1 = require("@mikro-orm/core");
-const mongodb_1 = require("mongodb");
+const mongodb_1 = require("@mikro-orm/mongodb");
 class BaseEntity {
     constructor() {
         this.createdAt = new Date();

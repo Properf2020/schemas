@@ -10,10 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SwimmerNote = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 let SwimmerNote = class SwimmerNote {
 };
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], SwimmerNote.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], SwimmerNote.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", _1.Note)

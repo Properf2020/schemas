@@ -1,13 +1,20 @@
-import { Entity, Property } from '@mikro-orm/core';
+import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from '@mikro-orm/core';
+import { ObjectId } from '@mikro-orm/mongodb';
 import { Enum } from 'mikro-orm';
 import { BaseEntity, Club } from '.';
 import { EPaymentStatus } from '../enums';
 import { BillRepository } from '../repositories/BillRepository';
 
-@Entity({ customRepository: () => BillRepository})
+@Entity({ customRepository: () => BillRepository })
 export class Bill extends BaseEntity {
 
-  @Property()
+  @PrimaryKey()
+  _id!: ObjectId;
+
+  @SerializedPrimaryKey()
+  id!: string;
+
+  @Property({ type: Club })
   club: Club;
 
   @Property()

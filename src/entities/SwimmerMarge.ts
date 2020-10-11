@@ -1,6 +1,11 @@
-import { Entity } from "mikro-orm";
+import { ObjectId } from "@mikro-orm/mongodb";
+import { Entity, PrimaryKey, SerializedPrimaryKey } from "mikro-orm";
 
 @Entity()
 export class SwimmerMarge {
-    //TODO
+    @PrimaryKey()
+    _id!: ObjectId;
+
+    @SerializedPrimaryKey()
+    id!: string;
 }

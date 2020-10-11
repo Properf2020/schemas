@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Group = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const GroupRepository_1 = require("../repositories/GroupRepository");
@@ -21,11 +22,19 @@ let Group = class Group extends _1.BaseEntity {
     }
 };
 __decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], Group.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], Group.prototype, "id", void 0);
+__decorate([
     mikro_orm_1.OneToMany(() => _1.Swimmer, swimmer => swimmer.group),
     __metadata("design:type", Object)
 ], Group.prototype, "swimmers", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    mikro_orm_1.Property({ type: _1.User }),
     __metadata("design:type", _1.User)
 ], Group.prototype, "coach", void 0);
 Group = __decorate([

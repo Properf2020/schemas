@@ -1,14 +1,21 @@
-import { Entity, Property } from "mikro-orm";
+import { ObjectId } from "@mikro-orm/mongodb";
+import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
 import { BaseEntity, Note } from ".";
 
-@Entity()
 export abstract class BaseStats extends BaseEntity {
 
-    @Property()
-    performance?: Note;
+    @PrimaryKey()
+    _id!: ObjectId;
+
+    @SerializedPrimaryKey()
+    id!: string;
 
     @Property()
-    amelioration?: Note;
+    performance;
 
+    constructor(performance: Note) {
+        super();
+        this.performance = performance;
+    }
 
 }

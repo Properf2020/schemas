@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClubRole = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
@@ -20,7 +21,15 @@ let ClubRole = class ClubRole {
     }
 };
 __decorate([
-    mikro_orm_1.Property(),
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], ClubRole.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], ClubRole.prototype, "id", void 0);
+__decorate([
+    mikro_orm_1.Property({ type: _1.User }),
     __metadata("design:type", _1.User)
 ], ClubRole.prototype, "user", void 0);
 __decorate([

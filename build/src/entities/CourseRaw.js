@@ -10,10 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CourseRaw = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 let CourseRaw = class CourseRaw extends _1.BaseEntity {
 };
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], CourseRaw.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], CourseRaw.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
@@ -62,18 +71,6 @@ __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
 ], CourseRaw.prototype, "dateNaissance", void 0);
-__decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", String)
-], CourseRaw.prototype, "classementDep", void 0);
-__decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", String)
-], CourseRaw.prototype, "classementReg", void 0);
-__decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", String)
-], CourseRaw.prototype, "classementNat", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)

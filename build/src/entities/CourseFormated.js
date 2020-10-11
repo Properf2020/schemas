@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CourseFormated = void 0;
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
@@ -28,6 +29,14 @@ let CourseFormated = class CourseFormated extends _1.BaseEntity {
         this.notes = notes;
     }
 };
+__decorate([
+    mikro_orm_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], CourseFormated.prototype, "_id", void 0);
+__decorate([
+    mikro_orm_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], CourseFormated.prototype, "id", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
@@ -61,8 +70,8 @@ __decorate([
     __metadata("design:type", String)
 ], CourseFormated.prototype, "bassin", void 0);
 __decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", _1.SwimmerNote)
+    mikro_orm_1.Property({ type: _1.SwimmerNote }),
+    __metadata("design:type", Object)
 ], CourseFormated.prototype, "notes", void 0);
 CourseFormated = __decorate([
     mikro_orm_1.Entity({ customRepository: () => CourseFormatedRepository_1.CourseFormatedRepository }),

@@ -30,9 +30,11 @@
     "url": "git+https://github.com/Properf2020/schemas.git"
   },
   "dependencies": {
+    "@mikro-orm/core": "^4.0.7",
     "@mikro-orm/mongo-highlighter": "^1.0.0",
+    "@mikro-orm/mongodb": "^4.0.7",
     "mikro-orm": "^4.0.7",
-    "mongodb": "^3.6.2",
+    "npm": "^3.6.2",
     "ts-node": "^9.0.0",
     "tslib": "~2.0.1"
   },
@@ -40,10 +42,10 @@
     "useTsNode": true,
     "configPaths": [
       "./src/mikro-orm.config.ts",
-      "./dist/mikro-orm.config.js"
+      "./build/mikro-orm.config.js"
     ]
   },
   "files": [
-    "dist/**/*"
+    "build/**/*"
   ]
 }

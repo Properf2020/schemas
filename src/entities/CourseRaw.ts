@@ -1,8 +1,15 @@
-import { Entity, Property } from "mikro-orm";
+import { ObjectId } from "@mikro-orm/mongodb";
+import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
 import { BaseEntity } from ".";
 
 @Entity()
 export class CourseRaw extends BaseEntity {
+
+    @PrimaryKey()
+    _id!: ObjectId;
+
+    @SerializedPrimaryKey()
+    id!: string;
 
     @Property()
     course?: string;
@@ -39,15 +46,6 @@ export class CourseRaw extends BaseEntity {
 
     @Property()
     dateNaissance?: string;
-
-    @Property()
-    classementDep?: string;
-
-    @Property()
-    classementReg?: string;
-
-    @Property()
-    classementNat?: string;
 
     @Property()
     city?: string;

@@ -1,9 +1,16 @@
-import { Collection, Entity, OneToMany, Property } from 'mikro-orm';
+import { ObjectId } from '@mikro-orm/mongodb';
+import { Collection, Entity, OneToMany, PrimaryKey, Property, SerializedPrimaryKey } from 'mikro-orm';
 import { BaseEntity, Club, CourseFormated, Group, SwimmerMarge, SwimmerNote, SwimmerRecord, User } from '.'
 import { SwimmerRepository } from '../repositories/SwimmerRepository';
 
-@Entity({ customRepository: () => SwimmerRepository})
+@Entity({ customRepository: () => SwimmerRepository })
 export class Swimmer extends BaseEntity {
+
+    @PrimaryKey()
+    _id!: ObjectId;
+
+    @SerializedPrimaryKey()
+    id!: string;
 
     @Property()
     firstName: string;
@@ -18,7 +25,7 @@ export class Swimmer extends BaseEntity {
     seniority: number;
 
     @Property()
-    user?: User;
+    user = null;
 
     @Property()
     group?: Group;
@@ -27,13 +34,13 @@ export class Swimmer extends BaseEntity {
     club: Club;
 
     @Property()
-    records: SwimmerRecord = new SwimmerRecord();
+    records = new SwimmerRecord();
 
     @Property()
-    marges: SwimmerMarge = new SwimmerMarge();
+    marges = new SwimmerMarge();
 
     @Property()
-    notes: SwimmerNote = new SwimmerNote();
+    notes = new SwimmerNote();
 
     @OneToMany(() => CourseFormated, course => course.swimmer)
     courses = new Collection<CourseFormated>(this);

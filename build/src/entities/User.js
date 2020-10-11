@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const core_1 = require("@mikro-orm/core");
+const mongodb_1 = require("@mikro-orm/mongodb");
 const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
@@ -28,6 +29,14 @@ let User = class User extends _1.BaseEntity {
         this.phoneNumber = phoneNumber;
     }
 };
+__decorate([
+    core_1.PrimaryKey(),
+    __metadata("design:type", mongodb_1.ObjectId)
+], User.prototype, "_id", void 0);
+__decorate([
+    core_1.SerializedPrimaryKey(),
+    __metadata("design:type", String)
+], User.prototype, "id", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
@@ -58,7 +67,7 @@ __decorate([
 ], User.prototype, "role", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", _1.UserPreference)
+    __metadata("design:type", Object)
 ], User.prototype, "preference", void 0);
 __decorate([
     mikro_orm_1.ManyToMany(() => _1.ClubRole),
