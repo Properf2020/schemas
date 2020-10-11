@@ -48,5 +48,11 @@ export class CourseRaw extends BaseEntity {
     dateNaissance?: string;
 
     @Property()
+    departement?: string;
+
+    @Property()
+    region?: string;
+
+    @Property()
     city?: string;
 }
