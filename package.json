@@ -2,9 +2,6 @@
   "name": "@properf/schemas",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": ">= 12.13 <13"
-  },
   "devDependencies": {
     "@types/jest": "~26.0.10",
     "@types/node": "~12.12",
@@ -24,9 +21,9 @@
     "clean": "rimraf coverage build tmp",
     "build": "tsc -p tsconfig.release.json",
     "build:watch": "tsc -w -p tsconfig.release.json",
-    "prepare" : "npm run build",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "prepare": "npm run build",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -39,10 +36,6 @@
     "ts-node": "^9.0.0",
     "tslib": "~2.0.1"
   },
-  "volta": {
-    "node": "12.18.3",
-    "npm": "6.14.5"
-  },
   "mikro-orm": {
     "useTsNode": true,
     "configPaths": [
@@ -50,5 +43,7 @@
       "./dist/mikro-orm.config.js"
     ]
   },
-  "files": ["dist/**/*"]
+  "files": [
+    "dist/**/*"
+  ]
 }
