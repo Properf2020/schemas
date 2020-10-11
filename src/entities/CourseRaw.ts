@@ -1,8 +1,9 @@
 import { ObjectId } from "@mikro-orm/mongodb";
-import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
+import { Entity, PrimaryKey, Property, SerializedPrimaryKey, Unique } from "mikro-orm";
 import { BaseEntity } from ".";
 
 @Entity()
+@Unique({ properties: ['userID', 'date', 'distance', 'course'] })
 export class CourseRaw extends BaseEntity {
 
     @PrimaryKey()

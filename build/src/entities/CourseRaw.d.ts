@@ -15,5 +15,8 @@ export declare class CourseRaw extends BaseEntity {
     date?: string;
     ville?: string;
     dateNaissance?: string;
-    city?: string;
+    departement?: string;
+    region?: string;
+    userID?: string;
+    clubID?: string;
 }

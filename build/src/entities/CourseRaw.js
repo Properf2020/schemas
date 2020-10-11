@@ -74,8 +74,21 @@ __decorate([
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
-], CourseRaw.prototype, "city", void 0);
+], CourseRaw.prototype, "departement", void 0);
+__decorate([
+    mikro_orm_1.Property(),
+    __metadata("design:type", String)
+], CourseRaw.prototype, "region", void 0);
+__decorate([
+    mikro_orm_1.Property(),
+    __metadata("design:type", String)
+], CourseRaw.prototype, "userID", void 0);
+__decorate([
+    mikro_orm_1.Property(),
+    __metadata("design:type", String)
+], CourseRaw.prototype, "clubID", void 0);
 CourseRaw = __decorate([
-    mikro_orm_1.Entity()
+    mikro_orm_1.Entity(),
+    mikro_orm_1.Unique({ properties: ['userID', 'date', 'distance', 'course'] })
 ], CourseRaw);
 exports.CourseRaw = CourseRaw;
