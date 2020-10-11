@@ -54,5 +54,8 @@ export class CourseRaw extends BaseEntity {
     region?: string;
 
     @Property()
-    city?: string;
+    userID?: string;
+
+    @Property()
+    clubID?: string;
 }
