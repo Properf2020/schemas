@@ -26,7 +26,16 @@
     "build:watch": "tsc -w -p tsconfig.release.json",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Properf2020/schemas.git"
   },
   "dependencies": {
     "@mikro-orm/mongo-highlighter": "^1.0.0",
@@ -45,5 +54,6 @@
       "./src/mikro-orm.config.ts",
       "./dist/mikro-orm.config.js"
     ]
-  }
+  },
+  "files": ["dist/**/*"]
 }
