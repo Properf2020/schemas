@@ -37,6 +37,10 @@ __decorate([
     __metadata("design:type", String)
 ], Club.prototype, "name", void 0);
 __decorate([
+    core_1.Property(),
+    __metadata("design:type", number)
+], Club.prototype, "idFfn", void 0);
+__decorate([
     mikro_orm_1.ManyToMany(() => _1.ClubRole),
     __metadata("design:type", Object)
 ], Club.prototype, "users", void 0);
