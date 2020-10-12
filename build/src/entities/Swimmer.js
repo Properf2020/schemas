@@ -15,7 +15,7 @@ const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const SwimmerRepository_1 = require("../repositories/SwimmerRepository");
 let Swimmer = class Swimmer extends _1.BaseEntity {
-    constructor(firstName, lastName, birthDate, seniority, club, sexe) {
+    constructor(firstName, lastName, birthDate, club, sexe) {
         super();
         this.user = null;
         this.records = new _1.SwimmerRecord();
