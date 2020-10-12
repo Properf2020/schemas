@@ -6,6 +6,7 @@ export declare class Club extends BaseEntity {
     _id: ObjectId;
     id: string;
     name: string;
+    idFfn: string;
     users: Collection<ClubRole, unknown>;
     swimmers: Collection<Swimmer, unknown>;
     plan?: EPlan;
