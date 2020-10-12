@@ -32,8 +32,9 @@ export class Club extends BaseEntity {
   // @OneToMany(() => Bill, bill => bill.club)
   // bills = new Collection<Bill>(this);
 
-  constructor(name: string) {
+  constructor(name: string, idFfn: number) {
     super();
     this.name = name;
+    this.idFfn = idFfn;
   }
 }
