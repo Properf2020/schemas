@@ -1,6 +1,6 @@
 {
   "name": "@properf/schemas",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "devDependencies": {
     "@types/jest": "~26.0.10",
