@@ -14,7 +14,7 @@ export declare class Swimmer extends BaseEntity {
     club: Club;
     records: SwimmerRecord;
     marges: SwimmerMarge;
-    idFfn: number;
+    idFfn?: number;
     notes: SwimmerNote;
     courses: Collection<CourseFormated, unknown>;
     constructor(firstName: string, lastName: string, birthDate: Date, seniority: number, club: Club);
