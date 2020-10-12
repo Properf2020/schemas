@@ -68,6 +68,10 @@ __decorate([
 ], Swimmer.prototype, "group", void 0);
 __decorate([
     mikro_orm_1.Property(),
+    __metadata("design:type", Number)
+], Swimmer.prototype, "idFfn", void 0);
+__decorate([
+    mikro_orm_1.Property(),
     __metadata("design:type", _1.Club)
 ], Swimmer.prototype, "club", void 0);
 __decorate([
