@@ -17,11 +17,12 @@ const _1 = require(".");
 const enums_1 = require("../enums");
 const ClubRepository_1 = require("../repositories/ClubRepository");
 let Club = class Club extends _1.BaseEntity {
-    constructor(name) {
+    constructor(name, idFfn) {
         super();
         this.users = new core_1.Collection(this);
         this.swimmers = new core_1.Collection(this);
         this.name = name;
+        this.idFfn = idFfn;
     }
 };
 __decorate([
