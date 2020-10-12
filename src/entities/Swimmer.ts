@@ -25,6 +25,9 @@ export class Swimmer extends BaseEntity {
     seniority: number;
 
     @Property()
+    idFfn?: number;
+
+    @Property()
     sexe: string;
 
     @Property()
