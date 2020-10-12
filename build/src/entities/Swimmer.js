@@ -25,9 +25,8 @@ let Swimmer = class Swimmer extends _1.BaseEntity {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-        this.seniority = seniority;
         this.club = club;
-        this.sexe = sexe;
+        this.sex = sexe;
     }
 };
 __decorate([
@@ -57,7 +56,7 @@ __decorate([
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", String)
-], Swimmer.prototype, "sexe", void 0);
+], Swimmer.prototype, "sex", void 0);
 __decorate([
     mikro_orm_1.Property(),
     __metadata("design:type", Object)
