@@ -25,6 +25,9 @@ export class Swimmer extends BaseEntity {
     seniority: number;
 
     @Property()
+    sexe: string;
+
+    @Property()
     user = null;
 
     @Property()
@@ -45,13 +48,14 @@ export class Swimmer extends BaseEntity {
     @OneToMany(() => CourseFormated, course => course.swimmer)
     courses = new Collection<CourseFormated>(this);
 
-    constructor(firstName: string, lastName: string, birthDate: Date, seniority: number, club: Club) {
+    constructor(firstName: string, lastName: string, birthDate: Date, seniority: number, club: Club, sexe: string) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.seniority = seniority;
         this.club = club;
+        this.sexe = sexe;
     }
 
 }
