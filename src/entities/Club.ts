@@ -17,6 +17,9 @@ export class Club extends BaseEntity {
   @Property()
   name: string;
 
+  @Property()
+  idFfn: number;
+
   @ManyToMany(() => ClubRole)
   users = new Collection<ClubRole>(this);
 
