@@ -1,27 +1,18 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { Collection, Entity, OneToMany, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
+import { Collection, Entity, OneToMany, Property } from "@mikro-orm/core";
 import { BaseEntity, Swimmer, User } from ".";
-import { GroupRepository } from "../repositories/GroupRepository";
-
+import { GroupRepository } from "../repositories";
 
 @Entity({ customRepository: () => GroupRepository })
 export class Group extends BaseEntity {
 
-    @PrimaryKey()
-    _id!: ObjectId;
-
-    @SerializedPrimaryKey()
-    id!: string;
+    @Property({ type: User })
+    coach: User;
 
     @OneToMany(() => Swimmer, swimmer => swimmer.group)
     swimmers = new Collection<Swimmer>(this);
-
-    @Property({ type: User })
-    coach: User;
 
     constructor(coach: User) {
         super();
         this.coach = coach;
     }
-
 }

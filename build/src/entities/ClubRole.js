@@ -10,34 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ClubRole = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
-const enums_1 = require("../enums");
-let ClubRole = class ClubRole {
+let ClubRole = class ClubRole extends _1.BaseEntity {
     constructor(user) {
-        this.roles = [enums_1.ERole.DEFAULT];
+        super();
+        this.roles = [];
         this.user = user;
     }
 };
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], ClubRole.prototype, "_id", void 0);
-__decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], ClubRole.prototype, "id", void 0);
-__decorate([
-    mikro_orm_1.Property({ type: _1.User }),
+    core_1.Property(),
     __metadata("design:type", _1.User)
 ], ClubRole.prototype, "user", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", Array)
 ], ClubRole.prototype, "roles", void 0);
 ClubRole = __decorate([
-    mikro_orm_1.Entity(),
+    core_1.Entity(),
     __metadata("design:paramtypes", [_1.User])
 ], ClubRole);
 exports.ClubRole = ClubRole;

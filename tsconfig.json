@@ -8,7 +8,22 @@
     "esModuleInterop": true,
     "strict": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "baseUrl": "src",
+    "paths": {
+      "@entities/*": [
+        "entities/*"
+      ],
+      "@enums/*": [
+        "enums/*"
+      ],
+      "@objects/*": [
+        "objects/*"
+      ],
+      "@repositories/*": [
+        "repositories/*"
+      ]
+    }
   },
   "include": [
     "src/**/*",

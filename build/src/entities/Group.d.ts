@@ -1,10 +1,7 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { Collection } from "mikro-orm";
+import { Collection } from "@mikro-orm/core";
 import { BaseEntity, Swimmer, User } from ".";
 export declare class Group extends BaseEntity {
-    _id: ObjectId;
-    id: string;
-    swimmers: Collection<Swimmer, unknown>;
     coach: User;
+    swimmers: Collection<Swimmer, unknown>;
     constructor(coach: User);
 }

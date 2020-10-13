@@ -1,14 +1,6 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
+import { Entity, Property } from "@mikro-orm/core";
 
-@Entity()
 export class UserPreference {
-
-    @PrimaryKey()
-    _id!: ObjectId;
-
-    @SerializedPrimaryKey()
-    id!: string;
 
     @Property()
     receive_sms: boolean;

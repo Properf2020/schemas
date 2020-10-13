@@ -16,3 +16,5 @@ __exportStar(require("./EPlan"), exports);
 __exportStar(require("./ERole"), exports);
 __exportStar(require("./ESeason"), exports);
 __exportStar(require("./ESwimmerCategory"), exports);
+__exportStar(require("./ECourseDistance"), exports);
+__exportStar(require("./ECourseType"), exports);

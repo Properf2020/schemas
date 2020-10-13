@@ -10,79 +10,77 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Swimmer = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
-const SwimmerRepository_1 = require("../repositories/SwimmerRepository");
+const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let Swimmer = class Swimmer extends _1.BaseEntity {
-    constructor(firstName, lastName, birthDate, seniority, club) {
+    constructor(firstName, lastName, birthDate, club, sex) {
         super();
         this.user = null;
-        this.records = new _1.SwimmerRecord();
-        this.marges = new _1.SwimmerMarge();
-        this.notes = new _1.SwimmerNote();
-        this.courses = new mikro_orm_1.Collection(this);
+        this.courses = new core_1.Collection(this);
+        this.records = new core_1.Collection(this);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-        this.seniority = seniority;
         this.club = club;
+        this.sex = sex;
     }
 };
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], Swimmer.prototype, "_id", void 0);
-__decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], Swimmer.prototype, "id", void 0);
-__decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", String)
 ], Swimmer.prototype, "firstName", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", String)
 ], Swimmer.prototype, "lastName", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", Date)
 ], Swimmer.prototype, "birthDate", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", Number)
 ], Swimmer.prototype, "seniority", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
+    __metadata("design:type", String)
+], Swimmer.prototype, "sex", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", String)
+], Swimmer.prototype, "idFFn", void 0);
+__decorate([
+    core_1.Property(),
     __metadata("design:type", Object)
 ], Swimmer.prototype, "user", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", _1.Group)
 ], Swimmer.prototype, "group", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", _1.Club)
 ], Swimmer.prototype, "club", void 0);
 __decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", Object)
-], Swimmer.prototype, "records", void 0);
-__decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", Object)
+    core_1.Property(),
+    __metadata("design:type", objects_1.SwimmerMarge)
 ], Swimmer.prototype, "marges", void 0);
 __decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", Object)
+    core_1.Property(),
+    __metadata("design:type", objects_1.Note)
 ], Swimmer.prototype, "notes", void 0);
 __decorate([
-    mikro_orm_1.OneToMany(() => _1.CourseFormated, course => course.swimmer),
+    core_1.OneToMany(() => _1.CourseFormated, course => course.swimmer),
     __metadata("design:type", Object)
 ], Swimmer.prototype, "courses", void 0);
+__decorate([
+    core_1.OneToMany(() => _1.CourseFormated, course => course.swimmer),
+    __metadata("design:type", Object)
+], Swimmer.prototype, "records", void 0);
 Swimmer = __decorate([
-    mikro_orm_1.Entity({ customRepository: () => SwimmerRepository_1.SwimmerRepository }),
-    __metadata("design:paramtypes", [String, String, Date, Number, _1.Club])
+    core_1.Entity({ customRepository: () => repositories_1.SwimmerRepository }),
+    __metadata("design:paramtypes", [String, String, Date, _1.Club, String])
 ], Swimmer);
 exports.Swimmer = Swimmer;

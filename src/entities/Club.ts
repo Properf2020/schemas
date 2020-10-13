@@ -1,36 +1,34 @@
-import { Collection, Entity, OneToMany, PrimaryKey, Property, SerializedPrimaryKey } from '@mikro-orm/core';
-import { ObjectId } from '@mikro-orm/mongodb';
-import { Enum, ManyToMany } from 'mikro-orm';
-import { BaseEntity, ClubRole, Swimmer, Bill } from '.';
+import { Cascade, Collection, Entity, Enum, ManyToMany, OneToMany, Property } from '@mikro-orm/core';
+import { ClubRepository } from "../repositories";
+import { BaseEntity, Bill, Swimmer } from '.';
 import { EPlan } from '../enums';
-import { ClubRepository } from '../repositories/ClubRepository';
+import { ClubRole } from '../objects';
 
 @Entity({ customRepository: () => ClubRepository })
 export class Club extends BaseEntity {
 
-  @PrimaryKey()
-  _id!: ObjectId;
-
-  @SerializedPrimaryKey()
-  id!: string;
-
   @Property()
   name: string;
 
-  @ManyToMany(() => ClubRole)
+  @Enum()
+  plan: EPlan = EPlan.BASE;
+
+  @Property({ unique: true })
+  idFfn: number;
+
+  @ManyToMany()
   users = new Collection<ClubRole>(this);
 
   @ManyToMany(() => Swimmer)
   swimmers = new Collection<Swimmer>(this);
 
-  @Enum()
-  plan?: EPlan;
+  @OneToMany(() => Bill, bill => bill.club, { cascade: [Cascade.ALL] })
+  bills: Collection<Bill>;
 
-  // @OneToMany(() => Bill, bill => bill.club)
-  // bills = new Collection<Bill>(this);
-
-  constructor(name: string) {
+  constructor(name: string, idFfn: number) {
     super();
     this.name = name;
+    this.idFfn = idFfn;
+    this.bills = new Collection<Bill>(this);
   }
 }

@@ -11,11 +11,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bill = void 0;
 const core_1 = require("@mikro-orm/core");
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
-const BillRepository_1 = require("../repositories/BillRepository");
+const repositories_1 = require("../repositories");
 let Bill = class Bill extends _1.BaseEntity {
     constructor(from, to, price, club, paymentStatus) {
         super();
@@ -27,15 +25,7 @@ let Bill = class Bill extends _1.BaseEntity {
     }
 };
 __decorate([
-    core_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], Bill.prototype, "_id", void 0);
-__decorate([
-    core_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], Bill.prototype, "id", void 0);
-__decorate([
-    core_1.Property({ type: _1.Club }),
+    core_1.ManyToOne(),
     __metadata("design:type", _1.Club)
 ], Bill.prototype, "club", void 0);
 __decorate([
@@ -51,11 +41,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Bill.prototype, "price", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], Bill.prototype, "paymentStatus", void 0);
 Bill = __decorate([
-    core_1.Entity({ customRepository: () => BillRepository_1.BillRepository }),
+    core_1.Entity({ customRepository: () => repositories_1.BillRepository }),
     __metadata("design:paramtypes", [Date, Date, Number, _1.Club, String])
 ], Bill);
 exports.Bill = Bill;

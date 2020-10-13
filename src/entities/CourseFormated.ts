@@ -1,17 +1,13 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { Entity, Enum, ManyToOne, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
-import { BaseEntity, Swimmer, Club, SwimmerNote } from ".";
-import { ESeason, ESwimmerCategory, EBassin } from "../enums";
-import { CourseFormatedRepository } from "../repositories/CourseFormatedRepository";
+import { Entity, Enum, Property } from "@mikro-orm/core";
+import { BaseEntity, Club, Swimmer } from ".";
+import { EBassin, ESeason, ESwimmerCategory } from "../enums";
+import { ECourseDistance } from "../enums/ECourseDistance";
+import { ECourseType } from "../enums/ECourseType";
+import { Note } from "../objects";
+import { CourseFormatedRepository } from "../repositories";
 
 @Entity({ customRepository: () => CourseFormatedRepository })
 export class CourseFormated extends BaseEntity {
-
-    @PrimaryKey()
-    _id!: ObjectId;
-
-    @SerializedPrimaryKey()
-    id!: string;
 
     @Property()
     time: String;
@@ -28,6 +24,9 @@ export class CourseFormated extends BaseEntity {
     @Property()
     swimmerAge: number;
 
+    @Property()
+    record?= Swimmer;
+
     @Enum()
     season: ESeason;
 
@@ -37,10 +36,16 @@ export class CourseFormated extends BaseEntity {
     @Enum()
     bassin: EBassin;
 
-    @Property({ type: SwimmerNote })
-    notes;
+    @Enum()
+    type: ECourseType
 
-    constructor(time: String, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, notes: SwimmerNote) {
+    @Enum()
+    distance: ECourseDistance;
+
+    @Property()
+    notes: Note;
+
+    constructor(time: String, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, notes: Note, type: ECourseType, distance: ECourseDistance) {
         super();
         this.club = club;
         this.bassin = bassin;
@@ -51,5 +56,7 @@ export class CourseFormated extends BaseEntity {
         this.swimmerAge = swimmerAge;
         this.swimmerCagegory = swimmerCategory;
         this.notes = notes;
+        this.type = type;
+        this.distance = distance;
     }
 }

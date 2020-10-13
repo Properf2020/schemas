@@ -1,23 +1,28 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DI = void 0;
+exports.createConnection = exports.DI = void 0;
 const core_1 = require("@mikro-orm/core");
 const entities_1 = require("./entities");
 const reflection_1 = require("@mikro-orm/reflection");
-const { MongoHighlighter } = require('@mikro-orm/mongo-highlighter');
-exports.DI = {};
-const createConnection = async () => {
-    exports.DI.orm = await core_1.MikroORM.init({
-        entities: [entities_1.User, entities_1.Bill, entities_1.Club, entities_1.ClubRole, entities_1.CourseFormated, entities_1.CourseRaw, entities_1.Group,
-            entities_1.Note, entities_1.StatsClub, entities_1.StatsCountry, entities_1.StatsDepartment, entities_1.StatsRegion, entities_1.SwimmerMarge, entities_1.Swimmer, entities_1.SwimmerNote, entities_1.SwimmerRecord, entities_1.UserPreference, core_1.BaseEntity, entities_1.BaseStats],
+const mongo_highlighter_1 = require("@mikro-orm/mongo-highlighter");
+const index_1 = require("./objects/index");
+class DI {
+    constructor(orm) {
+        this.orm = orm;
+        this.em = orm.em;
+    }
+}
+exports.DI = DI;
+async function createConnection(config) {
+    return new DI(await core_1.MikroORM.init({
+        entities: [entities_1.User, entities_1.Bill, entities_1.Club, entities_1.CourseFormated, entities_1.CourseRaw, entities_1.Group, entities_1.StatsClub, entities_1.StatsCountry, entities_1.StatsDepartment, entities_1.StatsRegion, entities_1.Swimmer, index_1.ClubRole, index_1.Note, index_1.SwimmerMarge, index_1.SwimmerRecord, index_1.UserPreference, entities_1.BaseStats, entities_1.BaseEntity],
         type: 'mongo',
-        dbName: 'properf',
-        highlighter: new MongoHighlighter(),
-        clientUrl: 'mongodb://srv1.poneyhost.eu:27017',
+        dbName: config.mongoName,
+        highlighter: new mongo_highlighter_1.MongoHighlighter(),
+        clientUrl: config.mongoHost,
         debug: true,
         metadataProvider: reflection_1.TsMorphMetadataProvider
-    });
-    exports.DI.em = exports.DI.orm.em;
-    return exports.DI;
-};
-module.exports = createConnection;
+    }));
+}
+exports.createConnection = createConnection;
+;

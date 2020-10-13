@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatsRegion = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
-const StatsRegionRepository_1 = require("../repositories/StatsRegionRepository");
+const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let StatsRegion = class StatsRegion extends _1.BaseStats {
     constructor(performance) {
         super(performance);
@@ -21,19 +21,11 @@ let StatsRegion = class StatsRegion extends _1.BaseStats {
     }
 };
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], StatsRegion.prototype, "_id", void 0);
-__decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], StatsRegion.prototype, "id", void 0);
-__decorate([
-    mikro_orm_1.Property({ type: _1.Note }),
-    __metadata("design:type", _1.Note)
+    core_1.Property(),
+    __metadata("design:type", objects_1.Note)
 ], StatsRegion.prototype, "performance", void 0);
 StatsRegion = __decorate([
-    mikro_orm_1.Entity({ customRepository: () => StatsRegionRepository_1.StatsRegionRepository }),
-    __metadata("design:paramtypes", [_1.Note])
+    core_1.Entity({ customRepository: () => repositories_1.StatsRegionRepository }),
+    __metadata("design:paramtypes", [objects_1.Note])
 ], StatsRegion);
 exports.StatsRegion = StatsRegion;

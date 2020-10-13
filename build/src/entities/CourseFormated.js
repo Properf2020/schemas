@@ -10,14 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CourseFormated = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
 const enums_1 = require("../enums");
-const CourseFormatedRepository_1 = require("../repositories/CourseFormatedRepository");
+const ECourseDistance_1 = require("../enums/ECourseDistance");
+const ECourseType_1 = require("../enums/ECourseType");
+const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let CourseFormated = class CourseFormated extends _1.BaseEntity {
-    constructor(time, swimmer, club, date, swimmerAge, season, swimmerCategory, bassin, notes) {
+    constructor(time, swimmer, club, date, swimmerAge, season, swimmerCategory, bassin, notes, type, distance) {
         super();
+        this.record = _1.Swimmer;
         this.club = club;
         this.bassin = bassin;
         this.time = time;
@@ -27,54 +30,60 @@ let CourseFormated = class CourseFormated extends _1.BaseEntity {
         this.swimmerAge = swimmerAge;
         this.swimmerCagegory = swimmerCategory;
         this.notes = notes;
+        this.type = type;
+        this.distance = distance;
     }
 };
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], CourseFormated.prototype, "_id", void 0);
-__decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], CourseFormated.prototype, "id", void 0);
-__decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", String)
 ], CourseFormated.prototype, "time", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", _1.Swimmer)
 ], CourseFormated.prototype, "swimmer", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", _1.Club)
 ], CourseFormated.prototype, "club", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", Date)
 ], CourseFormated.prototype, "date", void 0);
 __decorate([
-    mikro_orm_1.Property(),
+    core_1.Property(),
     __metadata("design:type", Number)
 ], CourseFormated.prototype, "swimmerAge", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
+    core_1.Property(),
+    __metadata("design:type", Object)
+], CourseFormated.prototype, "record", void 0);
+__decorate([
+    core_1.Enum(),
     __metadata("design:type", String)
 ], CourseFormated.prototype, "season", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], CourseFormated.prototype, "swimmerCagegory", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], CourseFormated.prototype, "bassin", void 0);
 __decorate([
-    mikro_orm_1.Property({ type: _1.SwimmerNote }),
-    __metadata("design:type", Object)
+    core_1.Enum(),
+    __metadata("design:type", String)
+], CourseFormated.prototype, "type", void 0);
+__decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], CourseFormated.prototype, "distance", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", objects_1.Note)
 ], CourseFormated.prototype, "notes", void 0);
 CourseFormated = __decorate([
-    mikro_orm_1.Entity({ customRepository: () => CourseFormatedRepository_1.CourseFormatedRepository }),
-    __metadata("design:paramtypes", [String, _1.Swimmer, _1.Club, Date, Number, String, String, String, _1.SwimmerNote])
+    core_1.Entity({ customRepository: () => repositories_1.CourseFormatedRepository }),
+    __metadata("design:paramtypes", [String, _1.Swimmer, _1.Club, Date, Number, String, String, String, objects_1.Note, String, String])
 ], CourseFormated);
 exports.CourseFormated = CourseFormated;

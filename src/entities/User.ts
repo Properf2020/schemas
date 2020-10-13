@@ -1,18 +1,11 @@
-import { Collection, Entity, PrimaryKey, Property, SerializedPrimaryKey } from '@mikro-orm/core';
-import { ObjectId } from '@mikro-orm/mongodb';
-import { Enum, ManyToMany } from 'mikro-orm';
-import { BaseEntity, ClubRole, Swimmer, UserPreference } from '.';
+import { Collection, Entity, Enum, ManyToMany, Property } from '@mikro-orm/core';
+import { BaseEntity, Swimmer } from '.';
 import { ERole } from '../enums';
-import { UserRepository } from '../repositories/UserRepository';
+import { ClubRole, UserPreference } from '../objects';
+import { UserRepository } from '../repositories';
 
 @Entity({ customRepository: () => UserRepository })
 export class User extends BaseEntity {
-
-  @PrimaryKey()
-  _id!: ObjectId;
-
-  @SerializedPrimaryKey()
-  id!: string;
 
   @Property()
   firstName: string;
@@ -36,9 +29,9 @@ export class User extends BaseEntity {
   role: ERole = ERole.DEFAULT;
 
   @Property()
-  preference = new UserPreference(true, true);
+  preference!: UserPreference;
 
-  @ManyToMany(() => ClubRole)
+  @ManyToMany()
   clubs = new Collection<ClubRole>(this);
 
   constructor(firstName: string, lastName: string, email: string, password: string, phoneNumber: string) {

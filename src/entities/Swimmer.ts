@@ -1,16 +1,10 @@
-import { ObjectId } from '@mikro-orm/mongodb';
-import { Collection, Entity, OneToMany, PrimaryKey, Property, SerializedPrimaryKey } from 'mikro-orm';
-import { BaseEntity, Club, CourseFormated, Group, SwimmerMarge, SwimmerNote, SwimmerRecord, User } from '.'
-import { SwimmerRepository } from '../repositories/SwimmerRepository';
+import { Collection, Entity, OneToMany, Property } from '@mikro-orm/core';
+import { BaseEntity, Club, CourseFormated, Group } from '.';
+import { Note, SwimmerMarge } from '../objects';
+import { SwimmerRepository } from '../repositories';
 
 @Entity({ customRepository: () => SwimmerRepository })
 export class Swimmer extends BaseEntity {
-
-    @PrimaryKey()
-    _id!: ObjectId;
-
-    @SerializedPrimaryKey()
-    id!: string;
 
     @Property()
     firstName: string;
@@ -22,7 +16,13 @@ export class Swimmer extends BaseEntity {
     birthDate: Date;
 
     @Property()
-    seniority: number;
+    seniority?: number;
+
+    @Property()
+    sex: string;
+
+    @Property()
+    idFFn?: string;
 
     @Property()
     user = null;
@@ -34,24 +34,23 @@ export class Swimmer extends BaseEntity {
     club: Club;
 
     @Property()
-    records = new SwimmerRecord();
+    marges?: SwimmerMarge;
 
     @Property()
-    marges = new SwimmerMarge();
-
-    @Property()
-    notes = new SwimmerNote();
+    notes?: Note;
 
     @OneToMany(() => CourseFormated, course => course.swimmer)
     courses = new Collection<CourseFormated>(this);
 
-    constructor(firstName: string, lastName: string, birthDate: Date, seniority: number, club: Club) {
+    @OneToMany(() => CourseFormated, course => course.swimmer)
+    records = new Collection<CourseFormated>(this);
+
+    constructor(firstName: string, lastName: string, birthDate: Date, club: Club, sex: string) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-        this.seniority = seniority;
         this.club = club;
+        this.sex = sex;
     }
-
 }

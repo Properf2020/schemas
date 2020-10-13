@@ -1,19 +1,19 @@
-import { ObjectId } from '@mikro-orm/mongodb';
-import { Collection } from 'mikro-orm';
-import { BaseEntity, Club, CourseFormated, Group, SwimmerMarge, SwimmerNote, SwimmerRecord } from '.';
+import { Collection } from '@mikro-orm/core';
+import { BaseEntity, Club, CourseFormated, Group } from '.';
+import { Note, SwimmerMarge } from '../objects';
 export declare class Swimmer extends BaseEntity {
-    _id: ObjectId;
-    id: string;
     firstName: string;
     lastName: string;
     birthDate: Date;
-    seniority: number;
+    seniority?: number;
+    sex: string;
+    idFFn?: string;
     user: null;
     group?: Group;
     club: Club;
-    records: SwimmerRecord;
-    marges: SwimmerMarge;
-    notes: SwimmerNote;
+    marges?: SwimmerMarge;
+    notes?: Note;
     courses: Collection<CourseFormated, unknown>;
-    constructor(firstName: string, lastName: string, birthDate: Date, seniority: number, club: Club);
+    records: Collection<CourseFormated, unknown>;
+    constructor(firstName: string, lastName: string, birthDate: Date, club: Club, sex: string);
 }

@@ -1,18 +1,12 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { Entity, PrimaryKey, Property, SerializedPrimaryKey } from "mikro-orm";
-import { BaseStats, Note } from ".";
-import { StatsDepartmentRepository } from "../repositories/StatsDepartmentRepository";
+import { Entity, Property } from "@mikro-orm/core";
+import { BaseStats } from ".";
+import { Note } from "../objects";
+import { StatsDepartmentRepository } from "../repositories";
 
 @Entity({ customRepository: () => StatsDepartmentRepository })
 export class StatsDepartment extends BaseStats {
 
-    @PrimaryKey()
-    _id!: ObjectId;
-
-    @SerializedPrimaryKey()
-    id!: string;
-
-    @Property({ type: Note })
+    @Property()
     performance: Note;
 
     constructor(performance: Note) {

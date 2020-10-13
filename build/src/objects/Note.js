@@ -9,29 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SwimmerNote = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
-const _1 = require(".");
-let SwimmerNote = class SwimmerNote {
-};
+exports.Note = void 0;
+const core_1 = require("@mikro-orm/core");
+class Note {
+}
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], SwimmerNote.prototype, "_id", void 0);
+    core_1.Property(),
+    __metadata("design:type", Number)
+], Note.prototype, "france", void 0);
 __decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], SwimmerNote.prototype, "id", void 0);
+    core_1.Property(),
+    __metadata("design:type", Number)
+], Note.prototype, "departement", void 0);
 __decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", _1.Note)
-], SwimmerNote.prototype, "perfomance", void 0);
+    core_1.Property(),
+    __metadata("design:type", Number)
+], Note.prototype, "region", void 0);
 __decorate([
-    mikro_orm_1.Property(),
-    __metadata("design:type", _1.Note)
-], SwimmerNote.prototype, "amelioration", void 0);
-SwimmerNote = __decorate([
-    mikro_orm_1.Entity()
-], SwimmerNote);
-exports.SwimmerNote = SwimmerNote;
+    core_1.Property(),
+    __metadata("design:type", Number)
+], Note.prototype, "club", void 0);
+exports.Note = Note;

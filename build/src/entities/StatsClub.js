@@ -10,10 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatsClub = void 0;
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
-const StatsClubRepository_1 = require("../repositories/StatsClubRepository");
+const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let StatsClub = class StatsClub extends _1.BaseStats {
     constructor(performance) {
         super(performance);
@@ -21,19 +21,11 @@ let StatsClub = class StatsClub extends _1.BaseStats {
     }
 };
 __decorate([
-    mikro_orm_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], StatsClub.prototype, "_id", void 0);
-__decorate([
-    mikro_orm_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], StatsClub.prototype, "id", void 0);
-__decorate([
-    mikro_orm_1.Property({ type: _1.Note }),
-    __metadata("design:type", _1.Note)
+    core_1.Property(),
+    __metadata("design:type", objects_1.Note)
 ], StatsClub.prototype, "performance", void 0);
 StatsClub = __decorate([
-    mikro_orm_1.Entity({ customRepository: () => StatsClubRepository_1.StatsClubRepository }),
-    __metadata("design:paramtypes", [_1.Note])
+    core_1.Entity({ customRepository: () => repositories_1.StatsClubRepository }),
+    __metadata("design:paramtypes", [objects_1.Note])
 ], StatsClub);
 exports.StatsClub = StatsClub;

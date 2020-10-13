@@ -1,4 +1,4 @@
-import { EntityRepository } from "mikro-orm";
-import { StatsClub, StatsCountry } from "../entities";
+import { EntityRepository } from "@mikro-orm/core";
+import { StatsCountry } from "../entities";
 
-export class StatsCountryRepository extends EntityRepository<StatsCountry> {}
+export class StatsCountryRepository extends EntityRepository<StatsCountry> { }

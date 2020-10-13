@@ -1,9 +1,6 @@
-import { ObjectId } from "@mikro-orm/mongodb";
-import { User } from ".";
+import { BaseEntity, User } from ".";
 import { ERole } from "../enums";
-export declare class ClubRole {
-    _id: ObjectId;
-    id: string;
+export declare class ClubRole extends BaseEntity {
     user: User;
     roles: Array<ERole>;
     constructor(user: User);

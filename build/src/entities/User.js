@@ -11,16 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const core_1 = require("@mikro-orm/core");
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
 const _1 = require(".");
 const enums_1 = require("../enums");
-const UserRepository_1 = require("../repositories/UserRepository");
+const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let User = class User extends _1.BaseEntity {
     constructor(firstName, lastName, email, password, phoneNumber) {
         super();
         this.role = enums_1.ERole.DEFAULT;
-        this.preference = new _1.UserPreference(true, true);
         this.clubs = new core_1.Collection(this);
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,14 +27,6 @@ let User = class User extends _1.BaseEntity {
         this.phoneNumber = phoneNumber;
     }
 };
-__decorate([
-    core_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], User.prototype, "_id", void 0);
-__decorate([
-    core_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], User.prototype, "id", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
@@ -62,19 +52,19 @@ __decorate([
     __metadata("design:type", _1.Swimmer)
 ], User.prototype, "swimmer", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", Object)
+    __metadata("design:type", objects_1.UserPreference)
 ], User.prototype, "preference", void 0);
 __decorate([
-    mikro_orm_1.ManyToMany(() => _1.ClubRole),
+    core_1.ManyToMany(),
     __metadata("design:type", Object)
 ], User.prototype, "clubs", void 0);
 User = __decorate([
-    core_1.Entity({ customRepository: () => UserRepository_1.UserRepository }),
+    core_1.Entity({ customRepository: () => repositories_1.UserRepository }),
     __metadata("design:paramtypes", [String, String, String, String, String])
 ], User);
 exports.User = User;

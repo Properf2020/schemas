@@ -1,8 +1,5 @@
-import { ObjectId } from "@mikro-orm/mongodb";
 import { BaseEntity } from ".";
 export declare class CourseRaw extends BaseEntity {
-    _id: ObjectId;
-    id: string;
     course?: string;
     distance?: string;
     sexeNageur?: string;

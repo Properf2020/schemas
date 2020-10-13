@@ -1,13 +1,13 @@
 import { Collection } from '@mikro-orm/core';
-import { ObjectId } from '@mikro-orm/mongodb';
-import { BaseEntity, ClubRole, Swimmer } from '.';
+import { BaseEntity, Bill, Swimmer } from '.';
 import { EPlan } from '../enums';
+import { ClubRole } from '../objects';
 export declare class Club extends BaseEntity {
-    _id: ObjectId;
-    id: string;
     name: string;
+    plan: EPlan;
+    idFfn: number;
     users: Collection<ClubRole, unknown>;
     swimmers: Collection<Swimmer, unknown>;
-    plan?: EPlan;
-    constructor(name: string);
+    bills: Collection<Bill>;
+    constructor(name: string, idFfn: number);
 }

@@ -11,45 +11,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Club = void 0;
 const core_1 = require("@mikro-orm/core");
-const mongodb_1 = require("@mikro-orm/mongodb");
-const mikro_orm_1 = require("mikro-orm");
+const repositories_1 = require("../repositories");
 const _1 = require(".");
 const enums_1 = require("../enums");
-const ClubRepository_1 = require("../repositories/ClubRepository");
 let Club = class Club extends _1.BaseEntity {
-    constructor(name) {
+    constructor(name, idFfn) {
         super();
+        this.plan = enums_1.EPlan.BASE;
         this.users = new core_1.Collection(this);
         this.swimmers = new core_1.Collection(this);
         this.name = name;
+        this.idFfn = idFfn;
+        this.bills = new core_1.Collection(this);
     }
 };
-__decorate([
-    core_1.PrimaryKey(),
-    __metadata("design:type", mongodb_1.ObjectId)
-], Club.prototype, "_id", void 0);
-__decorate([
-    core_1.SerializedPrimaryKey(),
-    __metadata("design:type", String)
-], Club.prototype, "id", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
 ], Club.prototype, "name", void 0);
 __decorate([
-    mikro_orm_1.ManyToMany(() => _1.ClubRole),
+    core_1.Enum(),
+    __metadata("design:type", String)
+], Club.prototype, "plan", void 0);
+__decorate([
+    core_1.Property({ unique: true }),
+    __metadata("design:type", Number)
+], Club.prototype, "idFfn", void 0);
+__decorate([
+    core_1.ManyToMany(),
     __metadata("design:type", Object)
 ], Club.prototype, "users", void 0);
 __decorate([
-    mikro_orm_1.ManyToMany(() => _1.Swimmer),
+    core_1.ManyToMany(() => _1.Swimmer),
     __metadata("design:type", Object)
 ], Club.prototype, "swimmers", void 0);
 __decorate([
-    mikro_orm_1.Enum(),
-    __metadata("design:type", String)
-], Club.prototype, "plan", void 0);
+    core_1.OneToMany(() => _1.Bill, bill => bill.club, { cascade: [core_1.Cascade.ALL] }),
+    __metadata("design:type", core_1.Collection)
+], Club.prototype, "bills", void 0);
 Club = __decorate([
-    core_1.Entity({ customRepository: () => ClubRepository_1.ClubRepository }),
-    __metadata("design:paramtypes", [String])
+    core_1.Entity({ customRepository: () => repositories_1.ClubRepository }),
+    __metadata("design:paramtypes", [String, Number])
 ], Club);
 exports.Club = Club;

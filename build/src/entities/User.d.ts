@@ -1,10 +1,8 @@
 import { Collection } from '@mikro-orm/core';
-import { ObjectId } from '@mikro-orm/mongodb';
-import { BaseEntity, ClubRole, Swimmer, UserPreference } from '.';
+import { BaseEntity, Swimmer } from '.';
 import { ERole } from '../enums';
+import { ClubRole, UserPreference } from '../objects';
 export declare class User extends BaseEntity {
-    _id: ObjectId;
-    id: string;
     firstName: string;
     lastName: string;
     email: string;

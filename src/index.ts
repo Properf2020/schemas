@@ -1,45 +1,32 @@
-import { BaseEntity, EntityManager, EntityRepository, MikroORM, RequestContext } from '@mikro-orm/core';
-import { BaseStats, Bill, Club, ClubRole, CourseFormated, CourseRaw, Group, Note, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, SwimmerMarge, SwimmerNote, SwimmerRecord, User, UserPreference } from './entities';
-import { ClubRepository } from './repositories';
+import { EntityManager, MikroORM } from '@mikro-orm/core';
+import { BaseEntity, BaseStats, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, User } from './entities';
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
+import { MongoHighlighter } from '@mikro-orm/mongo-highlighter';
+import { UserPreference, ClubRole, Note, SwimmerMarge, SwimmerRecord } from './objects/index';
 
-const { MongoHighlighter } = require('@mikro-orm/mongo-highlighter');
+export class DI {
+    orm: MikroORM;
+    em: EntityManager;
 
-export const DI = {} as {
-    orm: MikroORM,
-    em: EntityManager
-};
+    constructor(orm: MikroORM) {
+        this.orm = orm;
+        this.em = orm.em;
+    }
+}
 
-const createConnection = async () => {
-    DI.orm = await MikroORM.init({
-        entities: [User, Bill, Club, ClubRole, CourseFormated, CourseRaw, Group,
-            Note, StatsClub, StatsCountry, StatsDepartment, StatsRegion, SwimmerMarge, Swimmer, SwimmerNote, SwimmerRecord, UserPreference, BaseEntity, BaseStats],
+export interface DBConfig {
+    mongoName: string;
+    mongoHost: string;
+}
+
+export async function createConnection(config: DBConfig): Promise<DI> {
+    return new DI(await MikroORM.init({
+        entities: [User, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, ClubRole, Note, SwimmerMarge, SwimmerRecord, UserPreference, BaseStats, BaseEntity],
         type: 'mongo',
-        dbName: 'properf',
+        dbName: config.mongoName,
         highlighter: new MongoHighlighter(),
-        clientUrl: 'mongodb://srv1.poneyhost.eu:27017',
+        clientUrl: config.mongoHost,
         debug: true,
         metadataProvider: TsMorphMetadataProvider
-    });
-    DI.em = DI.orm.em;
-
-
-    /*const raw = new CourseRaw();
-
-    raw.course = "Nage Libre";
-    raw.distance = "50";
-    raw.nom = "CHALONS";
-    raw.prenom = "Guillaume";
-    raw.city = "PARIS";
-    raw.club = "MEETINCLASS";
-    raw.date = "qsdqsd";
-    raw.dateNaissance = "2000";
-    raw.saison = "2020";
-    raw.tailleBassin = "100";
-
-    await DI.orm.em.persistAndFlush([raw]);*/
-
-    return DI;
+    }));
 };
-
-module.exports = createConnection;
