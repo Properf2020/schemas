@@ -10,7 +10,7 @@ import { CourseFormatedRepository } from "../repositories";
 export class CourseFormated extends BaseEntity {
 
     @Property()
-    time: String;
+    time: number;
 
     @ManyToOne()
     swimmer: Swimmer;
@@ -43,9 +43,9 @@ export class CourseFormated extends BaseEntity {
     distance: ECourseDistance;
 
     @Property()
-    notes: Note;
+    notes?: Note;
 
-    constructor(time: String, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, notes: Note, type: ECourseType, distance: ECourseDistance) {
+    constructor(time: number, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, type: ECourseType, distance: ECourseDistance) {
         super();
         this.club = club;
         this.bassin = bassin;
@@ -55,7 +55,6 @@ export class CourseFormated extends BaseEntity {
         this.season = season;
         this.swimmerAge = swimmerAge;
         this.swimmerCagegory = swimmerCategory;
-        this.notes = notes;
         this.type = type;
         this.distance = distance;
     }

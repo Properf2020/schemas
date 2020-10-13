@@ -4,7 +4,7 @@ import { ECourseDistance } from "../enums/ECourseDistance";
 import { ECourseType } from "../enums/ECourseType";
 import { Note } from "../objects";
 export declare class CourseFormated extends BaseEntity {
-    time: String;
+    time: number;
     swimmer: Swimmer;
     club: Club;
     date: Date;
@@ -15,6 +15,6 @@ export declare class CourseFormated extends BaseEntity {
     bassin: EBassin;
     type: ECourseType;
     distance: ECourseDistance;
-    notes: Note;
-    constructor(time: String, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, notes: Note, type: ECourseType, distance: ECourseDistance);
+    notes?: Note;
+    constructor(time: number, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, type: ECourseType, distance: ECourseDistance);
 }
