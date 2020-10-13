@@ -1,4 +1,4 @@
-import { Entity, Enum, Property } from "@mikro-orm/core";
+import { Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
 import { BaseEntity, Club, Swimmer } from ".";
 import { EBassin, ESeason, ESwimmerCategory } from "../enums";
 import { ECourseDistance } from "../enums/ECourseDistance";
@@ -12,10 +12,10 @@ export class CourseFormated extends BaseEntity {
     @Property()
     time: String;
 
-    @Property()
+    @ManyToOne()
     swimmer: Swimmer;
 
-    @Property()
+    @ManyToOne()
     club: Club;
 
     @Property()

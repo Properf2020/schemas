@@ -39,11 +39,11 @@ __decorate([
     __metadata("design:type", String)
 ], CourseFormated.prototype, "time", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.ManyToOne(),
     __metadata("design:type", _1.Swimmer)
 ], CourseFormated.prototype, "swimmer", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.ManyToOne(),
     __metadata("design:type", _1.Club)
 ], CourseFormated.prototype, "club", void 0);
 __decorate([

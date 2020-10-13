@@ -60,7 +60,7 @@ __decorate([
     __metadata("design:type", _1.Group)
 ], Swimmer.prototype, "group", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.ManyToOne(),
     __metadata("design:type", _1.Club)
 ], Swimmer.prototype, "club", void 0);
 __decorate([

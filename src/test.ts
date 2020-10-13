@@ -1,4 +1,4 @@
-import { Bill, Club } from './entities';
+import { Bill, Club, Swimmer } from './entities';
 import { EPaymentStatus } from './enums';
 import { createConnection } from './index'
 
@@ -8,6 +8,10 @@ const createBill = (price: number, club: Club, paymentStatus: EPaymentStatus): B
 
 const createClub = (name: string, idffn: number): Club => {
     return new Club(name, idffn);
+}
+
+const createSwimmer = (firstName: string, lastName: string, birthDate: Date, club: Club, sex: string): Swimmer => {
+    return new Swimmer(firstName, lastName, birthDate, club, sex);
 }
 
 (async () => {
@@ -21,8 +25,16 @@ const createClub = (name: string, idffn: number): Club => {
     const club1 = createClub("Mon club de ouf", 1);
     const club2 = createClub("Mon club nul", 2);
     const bill = createBill(1500, club1, EPaymentStatus.PENDING);
+    let swimmer = createSwimmer(
+        "Test",
+        "John",
+        new Date(),
+        club1,
+        "H"
+    );
+    swimmer.idFFn = "1";
 
-    em.persistAndFlush([club1, club2, bill]);
+    em.persistAndFlush([club1, club2, bill, swimmer]);
 
     const retrieved = await em.getRepository<Club>(Club).findOne({ idFfn: 1 }, ['bills'])
     if (retrieved == undefined)

@@ -1,4 +1,4 @@
-import { Collection, Entity, OneToMany, Property } from '@mikro-orm/core';
+import { Collection, Entity, ManyToOne, OneToMany, Property } from '@mikro-orm/core';
 import { BaseEntity, Club, CourseFormated, Group } from '.';
 import { Note, SwimmerMarge } from '../objects';
 import { SwimmerRepository } from '../repositories';
@@ -30,7 +30,7 @@ export class Swimmer extends BaseEntity {
     @Property()
     group?: Group;
 
-    @Property()
+    @ManyToOne()
     club: Club;
 
     @Property()

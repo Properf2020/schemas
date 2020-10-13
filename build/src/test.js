@@ -9,6 +9,9 @@ const createBill = (price, club, paymentStatus) => {
 const createClub = (name, idffn) => {
     return new entities_1.Club(name, idffn);
 };
+const createSwimmer = (firstName, lastName, birthDate, club, sex) => {
+    return new entities_1.Swimmer(firstName, lastName, birthDate, club, sex);
+};
 (async () => {
     const DI = await index_1.createConnection({
         mongoHost: "mongodb://srv1.poneyhost.eu:27017",
@@ -18,7 +21,9 @@ const createClub = (name, idffn) => {
     const club1 = createClub("Mon club de ouf", 1);
     const club2 = createClub("Mon club nul", 2);
     const bill = createBill(1500, club1, enums_1.EPaymentStatus.PENDING);
-    em.persistAndFlush([club1, club2, bill]);
+    let swimmer = createSwimmer("Test", "John", new Date(), club1, "H");
+    swimmer.idFFn = "1";
+    em.persistAndFlush([club1, club2, bill, swimmer]);
     const retrieved = await em.getRepository(entities_1.Club).findOne({ idFfn: 1 }, ['bills']);
     if (retrieved == undefined)
         throw new Error("Aucunes bills de save c'est bizarre");
