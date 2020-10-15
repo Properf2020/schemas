@@ -15,15 +15,15 @@ const _1 = require(".");
 const objects_1 = require("../objects");
 const repositories_1 = require("../repositories");
 let Swimmer = class Swimmer extends _1.BaseEntity {
-    constructor(firstName, lastName, birthDate, club, sex) {
+    constructor(firstName, lastName, birthDate, sex) {
         super();
         this.user = null;
+        this.clubs = new core_1.Collection(this);
         this.courses = new core_1.Collection(this);
         this.records = new core_1.Collection(this);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
-        this.club = club;
         this.sex = sex;
     }
 };
@@ -60,9 +60,9 @@ __decorate([
     __metadata("design:type", _1.Group)
 ], Swimmer.prototype, "group", void 0);
 __decorate([
-    core_1.ManyToOne(),
-    __metadata("design:type", _1.Club)
-], Swimmer.prototype, "club", void 0);
+    core_1.ManyToMany(() => _1.Club, club => club.swimmers),
+    __metadata("design:type", Object)
+], Swimmer.prototype, "clubs", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", objects_1.SwimmerMarge)
@@ -81,6 +81,6 @@ __decorate([
 ], Swimmer.prototype, "records", void 0);
 Swimmer = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.SwimmerRepository }),
-    __metadata("design:paramtypes", [String, String, Date, _1.Club, String])
+    __metadata("design:paramtypes", [String, String, Date, String])
 ], Swimmer);
 exports.Swimmer = Swimmer;

@@ -3,6 +3,7 @@ import { ClubRepository } from "../repositories";
 import { BaseEntity, Bill, Swimmer } from '.';
 import { EPlan } from '../enums';
 import { ClubRole } from '../objects';
+import { User } from './User';
 
 @Entity({ customRepository: () => ClubRepository })
 export class Club extends BaseEntity {
@@ -16,10 +17,10 @@ export class Club extends BaseEntity {
   @Property({ unique: true })
   idFfn: number;
 
-  @ManyToMany()
+  @ManyToMany(() => ClubRole)
   users = new Collection<ClubRole>(this);
 
-  @ManyToMany(() => Swimmer)
+  @ManyToMany()
   swimmers = new Collection<Swimmer>(this);
 
   @OneToMany(() => Bill, bill => bill.club, { cascade: [Cascade.ALL] })

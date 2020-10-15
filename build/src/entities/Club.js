@@ -14,6 +14,7 @@ const core_1 = require("@mikro-orm/core");
 const repositories_1 = require("../repositories");
 const _1 = require(".");
 const enums_1 = require("../enums");
+const objects_1 = require("../objects");
 let Club = class Club extends _1.BaseEntity {
     constructor(name, idFfn) {
         super();
@@ -38,11 +39,11 @@ __decorate([
     __metadata("design:type", Number)
 ], Club.prototype, "idFfn", void 0);
 __decorate([
-    core_1.ManyToMany(),
+    core_1.ManyToMany(() => objects_1.ClubRole),
     __metadata("design:type", Object)
 ], Club.prototype, "users", void 0);
 __decorate([
-    core_1.ManyToMany(() => _1.Swimmer),
+    core_1.ManyToMany(),
     __metadata("design:type", Object)
 ], Club.prototype, "swimmers", void 0);
 __decorate([

@@ -42,6 +42,6 @@ __decorate([
 ], SwimmerMarge.prototype, "type", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], SwimmerMarge.prototype, "season", void 0);
 exports.SwimmerMarge = SwimmerMarge;

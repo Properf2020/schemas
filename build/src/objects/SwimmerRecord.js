@@ -39,7 +39,7 @@ __decorate([
 ], SwimmerRecord.prototype, "type", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], SwimmerRecord.prototype, "season", void 0);
 __decorate([
     core_1.Property(),

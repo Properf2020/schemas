@@ -59,7 +59,7 @@ __decorate([
 ], CourseFormated.prototype, "record", void 0);
 __decorate([
     core_1.Enum(),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], CourseFormated.prototype, "season", void 0);
 __decorate([
     core_1.Enum(),
@@ -83,6 +83,6 @@ __decorate([
 ], CourseFormated.prototype, "notes", void 0);
 CourseFormated = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.CourseFormatedRepository }),
-    __metadata("design:paramtypes", [Number, _1.Swimmer, _1.Club, Date, Number, String, String, String, String, String])
+    __metadata("design:paramtypes", [Number, _1.Swimmer, _1.Club, Date, Number, Number, String, String, String, String])
 ], CourseFormated);
 exports.CourseFormated = CourseFormated;
