@@ -11,9 +11,9 @@ export declare class Swimmer extends BaseEntity {
     user: null;
     group?: Group;
     clubs: Collection<Club, unknown>;
-    marges: Collection<SwimmerMarge, unknown>;
+    marges: Collection<SwimmerMarge>;
     notes?: Note;
     courses: Collection<CourseFormated, unknown>;
-    records: Collection<SwimmerRecord, unknown>;
+    records: Collection<SwimmerRecord>;
     constructor(firstName: string, lastName: string, birthDate: Date, sex: string);
 }

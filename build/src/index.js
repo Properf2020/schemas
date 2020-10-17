@@ -15,7 +15,7 @@ class DI {
 exports.DI = DI;
 async function createConnection(config) {
     return new DI(await core_1.MikroORM.init({
-        entities: [entities_1.User, entities_1.Bill, entities_1.Club, entities_1.CourseFormated, entities_1.CourseRaw, entities_1.Group, entities_1.StatsClub, entities_1.StatsCountry, entities_1.StatsDepartment, entities_1.StatsRegion, entities_1.Swimmer, index_1.ClubRole, index_1.Note, index_1.SwimmerMarge, index_1.SwimmerRecord, index_1.UserPreference, entities_1.BaseStats, entities_1.BaseEntity],
+        entities: [entities_1.User, entities_1.Bill, entities_1.Club, entities_1.CourseFormated, entities_1.CourseRaw, entities_1.Group, entities_1.StatsClub, entities_1.StatsCountry, entities_1.StatsDepartment, entities_1.StatsRegion, entities_1.Swimmer, index_1.ClubRole, index_1.Note, index_1.SwimmerMarge, index_1.SwimmerRecord, index_1.UserPreference, entities_1.ClubRaw, index_1.StatByAge, index_1.StatsByCategory, index_1.StatByNote, index_1.CourseInfo, entities_1.BaseStats, entities_1.BaseEntity],
         type: 'mongo',
         dbName: config.mongoName,
         highlighter: new mongo_highlighter_1.MongoHighlighter(),

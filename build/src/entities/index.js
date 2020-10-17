@@ -23,3 +23,4 @@ __exportStar(require("./StatsDepartment"), exports);
 __exportStar(require("./StatsRegion"), exports);
 __exportStar(require("./User"), exports);
 __exportStar(require("./Swimmer"), exports);
+__exportStar(require("./ClubRaw"), exports);

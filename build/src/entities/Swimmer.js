@@ -19,13 +19,13 @@ let Swimmer = class Swimmer extends _1.BaseEntity {
         super();
         this.user = null;
         this.clubs = new core_1.Collection(this);
-        this.marges = new core_1.Collection(this);
         this.courses = new core_1.Collection(this);
-        this.records = new core_1.Collection(this);
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.sex = sex;
+        this.records = new core_1.Collection(this);
+        this.marges = new core_1.Collection(this);
     }
 };
 __decorate([
@@ -65,8 +65,8 @@ __decorate([
     __metadata("design:type", Object)
 ], Swimmer.prototype, "clubs", void 0);
 __decorate([
-    core_1.OneToMany(() => objects_1.SwimmerMarge, marge => marge.swimmer),
-    __metadata("design:type", Object)
+    core_1.OneToMany(() => objects_1.SwimmerMarge, marge => marge.swimmer, { cascade: [core_1.Cascade.ALL] }),
+    __metadata("design:type", core_1.Collection)
 ], Swimmer.prototype, "marges", void 0);
 __decorate([
     core_1.Property(),
@@ -77,8 +77,8 @@ __decorate([
     __metadata("design:type", Object)
 ], Swimmer.prototype, "courses", void 0);
 __decorate([
-    core_1.OneToMany(() => objects_1.SwimmerRecord, record => record.swimmer),
-    __metadata("design:type", Object)
+    core_1.OneToMany(() => objects_1.SwimmerRecord, record => record.swimmer, { cascade: [core_1.Cascade.ALL], eager: true }),
+    __metadata("design:type", core_1.Collection)
 ], Swimmer.prototype, "records", void 0);
 Swimmer = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.SwimmerRepository }),

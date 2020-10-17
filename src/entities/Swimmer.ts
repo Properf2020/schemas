@@ -1,4 +1,4 @@
-import { Collection, Entity, ManyToMany, ManyToOne, OneToMany, Property } from '@mikro-orm/core';
+import { ArrayType, Cascade, Collection, Entity, ManyToMany, ManyToOne, OneToMany, Property } from '@mikro-orm/core';
 import { BaseEntity, Club, CourseFormated, Group } from '.';
 import { Note, SwimmerMarge, SwimmerRecord } from '../objects';
 import { SwimmerRepository } from '../repositories';
@@ -33,8 +33,8 @@ export class Swimmer extends BaseEntity {
     @ManyToMany(() => Club, club => club.swimmers)
     clubs = new Collection<Club>(this);
 
-    @OneToMany(() => SwimmerMarge, marge => marge.swimmer)
-    marges = new Collection<SwimmerMarge>(this);
+    @OneToMany(() => SwimmerMarge, marge => marge.swimmer, { cascade: [Cascade.ALL] })
+    marges: Collection<SwimmerMarge>;
 
     @Property()
     notes?: Note;
@@ -42,8 +42,8 @@ export class Swimmer extends BaseEntity {
     @OneToMany(() => CourseFormated, course => course.swimmer)
     courses = new Collection<CourseFormated>(this);
 
-    @OneToMany(() => SwimmerRecord, record => record.swimmer)
-    records = new Collection<SwimmerRecord>(this);
+    @OneToMany(() => SwimmerRecord, record => record.swimmer, { cascade: [Cascade.ALL], eager: true })
+    records: Collection<SwimmerRecord>;
 
     constructor(firstName: string, lastName: string, birthDate: Date, sex: string) {
         super();
@@ -51,5 +51,7 @@ export class Swimmer extends BaseEntity {
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.sex = sex;
+        this.records = new Collection<SwimmerRecord>(this);
+        this.marges = new Collection<SwimmerMarge>(this);
     }
 }

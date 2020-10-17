@@ -1,15 +1,16 @@
-import { Entity, Property } from "@mikro-orm/core";
-import { Swimmer } from "../entities";
+import { Entity, ManyToOne, Property } from "@mikro-orm/core";
+import { BaseEntity, Swimmer } from "../entities";
 import { ESeason } from "../enums";
 import { ECourseDistance } from "../enums";
 import { ECourseType } from "../enums";
 
-export class SwimmerMarge {
+@Entity()
+export class SwimmerMarge extends BaseEntity {
 
     @Property()
     marge: number;
 
-    @Property()
+    @ManyToOne()
     swimmer: Swimmer;
 
     @Property()

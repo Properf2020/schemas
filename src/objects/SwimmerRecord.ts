@@ -2,11 +2,12 @@ import { Swimmer } from "../entities";
 import { ESeason } from "../enums";
 import { ECourseDistance } from "../enums";
 import { ECourseType } from "../enums";
-import { CourseFormated } from "../entities";
-import { Entity, Property } from "@mikro-orm/core";
+import { BaseEntity, CourseFormated } from "../entities";
+import { Entity, ManyToMany, ManyToOne, OneToMany, Property } from "@mikro-orm/core";
 
-export class SwimmerRecord {
-    @Property()
+@Entity()
+export class SwimmerRecord extends BaseEntity {
+    @ManyToOne()
     swimmer: Swimmer;
 
     @Property()
@@ -18,10 +19,11 @@ export class SwimmerRecord {
     @Property()
     season: ESeason;
 
-    @Property()
+    @ManyToOne()
     course: CourseFormated;
 
     constructor(course: CourseFormated, swimmer: Swimmer, distance: ECourseDistance, type: ECourseType, season: ESeason) {
+        super();
         this.distance = distance;
         this.course = course;
         this.season = season;

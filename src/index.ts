@@ -1,8 +1,8 @@
 import { EntityManager, MikroORM } from '@mikro-orm/core';
-import { BaseEntity, BaseStats, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, User } from './entities';
+import { BaseEntity, BaseStats, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, User, ClubRaw } from './entities';
 import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import { MongoHighlighter } from '@mikro-orm/mongo-highlighter';
-import { UserPreference, ClubRole, Note, SwimmerMarge, SwimmerRecord } from './objects/index';
+import { UserPreference, ClubRole, Note, SwimmerMarge, SwimmerRecord, StatByAge, StatsByCategory, StatByNote, CourseInfo } from './objects/index';
 
 export class DI {
     orm: MikroORM;
@@ -21,7 +21,7 @@ export interface DBConfig {
 
 export async function createConnection(config: DBConfig): Promise<DI> {
     return new DI(await MikroORM.init({
-        entities: [User, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, ClubRole, Note, SwimmerMarge, SwimmerRecord, UserPreference, BaseStats, BaseEntity],
+        entities: [User, Bill, Club, CourseFormated, CourseRaw, Group, StatsClub, StatsCountry, StatsDepartment, StatsRegion, Swimmer, ClubRole, Note, SwimmerMarge, SwimmerRecord, UserPreference, ClubRaw, StatByAge, StatsByCategory, StatByNote, CourseInfo, BaseStats, BaseEntity],
         type: 'mongo',
         dbName: config.mongoName,
         highlighter: new MongoHighlighter(),

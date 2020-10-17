@@ -11,3 +11,4 @@ export * from './StatsDepartment';
 export * from './StatsRegion';
 export * from './User';
 export * from './Swimmer';
+export * from './ClubRaw';
