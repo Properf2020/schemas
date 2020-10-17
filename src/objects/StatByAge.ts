@@ -1,5 +1,7 @@
 import { EBassin, ECourseDistance, ECourseType } from "../enums";
-import { Property } from "@mikro-orm/core";
+import { ManyToMany, ManyToOne, Property } from "@mikro-orm/core";
+import { CourseFormated } from "../entities/";
+import { SwimmerMarge } from "./SwimmerMarge";
 
 export class StatByAge {
 
@@ -9,11 +11,11 @@ export class StatByAge {
     @Property()
     moyennePerf?: number;
 
-    @Property()
-    maxPerf?: number;
+    @ManyToOne()
+    maxPerf?: CourseFormated;
 
-    @Property()
-    minPerf?: number;
+    @ManyToOne()
+    minPerf?: CourseFormated;
 
     @Property()
     variancePerf?: number;
@@ -22,12 +24,11 @@ export class StatByAge {
     moyenneMarges?: number;
 
     @Property()
-    maxMarges?: number;
+    maxMarges?: SwimmerMarge;
 
     @Property()
-    minMarges?: number;
+    minMarges?: SwimmerMarge;
 
     @Property()
     varianceMarges?: number;
-
 }

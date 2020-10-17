@@ -17,13 +17,14 @@ const enums_3 = require("../enums");
 const entities_2 = require("../entities");
 const core_1 = require("@mikro-orm/core");
 let SwimmerRecord = class SwimmerRecord extends entities_2.BaseEntity {
-    constructor(course, swimmer, distance, type, season) {
+    constructor(course, swimmer, distance, type, season, bassin) {
         super();
         this.distance = distance;
         this.course = course;
         this.season = season;
         this.type = type;
         this.swimmer = swimmer;
+        this.bassin = bassin;
     }
 };
 __decorate([
@@ -31,23 +32,27 @@ __decorate([
     __metadata("design:type", entities_1.Swimmer)
 ], SwimmerRecord.prototype, "swimmer", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], SwimmerRecord.prototype, "distance", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], SwimmerRecord.prototype, "type", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", Number)
 ], SwimmerRecord.prototype, "season", void 0);
+__decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], SwimmerRecord.prototype, "bassin", void 0);
 __decorate([
     core_1.ManyToOne(),
     __metadata("design:type", entities_2.CourseFormated)
 ], SwimmerRecord.prototype, "course", void 0);
 SwimmerRecord = __decorate([
     core_1.Entity(),
-    __metadata("design:paramtypes", [entities_2.CourseFormated, entities_1.Swimmer, String, String, Number])
+    __metadata("design:paramtypes", [entities_2.CourseFormated, entities_1.Swimmer, String, String, Number, String])
 ], SwimmerRecord);
 exports.SwimmerRecord = SwimmerRecord;

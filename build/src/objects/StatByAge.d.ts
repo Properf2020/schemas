@@ -1,11 +1,13 @@
+import { CourseFormated } from "../entities/";
+import { SwimmerMarge } from "./SwimmerMarge";
 export declare class StatByAge {
     age?: number;
     moyennePerf?: number;
-    maxPerf?: number;
-    minPerf?: number;
+    maxPerf?: CourseFormated;
+    minPerf?: CourseFormated;
     variancePerf?: number;
     moyenneMarges?: number;
-    maxMarges?: number;
-    minMarges?: number;
+    maxMarges?: SwimmerMarge;
+    minMarges?: SwimmerMarge;
     varianceMarges?: number;
 }

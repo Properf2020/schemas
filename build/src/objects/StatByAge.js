@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatByAge = void 0;
 const core_1 = require("@mikro-orm/core");
+const entities_1 = require("../entities/");
+const SwimmerMarge_1 = require("./SwimmerMarge");
 class StatByAge {
 }
 __decorate([
@@ -22,12 +24,12 @@ __decorate([
     __metadata("design:type", Number)
 ], StatByAge.prototype, "moyennePerf", void 0);
 __decorate([
-    core_1.Property(),
-    __metadata("design:type", Number)
+    core_1.ManyToOne(),
+    __metadata("design:type", entities_1.CourseFormated)
 ], StatByAge.prototype, "maxPerf", void 0);
 __decorate([
-    core_1.Property(),
-    __metadata("design:type", Number)
+    core_1.ManyToOne(),
+    __metadata("design:type", entities_1.CourseFormated)
 ], StatByAge.prototype, "minPerf", void 0);
 __decorate([
     core_1.Property(),
@@ -39,11 +41,11 @@ __decorate([
 ], StatByAge.prototype, "moyenneMarges", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", Number)
+    __metadata("design:type", SwimmerMarge_1.SwimmerMarge)
 ], StatByAge.prototype, "maxMarges", void 0);
 __decorate([
     core_1.Property(),
-    __metadata("design:type", Number)
+    __metadata("design:type", SwimmerMarge_1.SwimmerMarge)
 ], StatByAge.prototype, "minMarges", void 0);
 __decorate([
     core_1.Property(),

@@ -14,7 +14,7 @@ const createSwimmer = (firstName, lastName, birthDate, sex) => {
 (async () => {
     const DI = await index_1.createConnection({
         mongoHost: "mongodb://srv1.poneyhost.eu:27017",
-        mongoName: "properf"
+        mongoName: "properf-test"
     });
     const em = DI.em.fork();
 })();

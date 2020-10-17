@@ -7,7 +7,7 @@ export declare class Swimmer extends BaseEntity {
     birthDate: Date;
     seniority?: number;
     sex: string;
-    idFfn?: string;
+    idFFn?: string;
     user: null;
     group?: Group;
     clubs: Collection<Club, unknown>;

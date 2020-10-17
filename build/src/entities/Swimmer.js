@@ -51,7 +51,7 @@ __decorate([
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
-], Swimmer.prototype, "idFfn", void 0);
+], Swimmer.prototype, "idFFn", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", Object)
