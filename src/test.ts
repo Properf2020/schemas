@@ -103,6 +103,5 @@ const createSwimmer = (firstName: string, lastName: string, birthDate: Date, sex
     /*const course = await em.getRepository<CourseFormated>(CourseFormated).findOne({ id: "5f8b08d833c5bb669af6a0b3" })
     if (!course)
         throw new Error();
-*/
-    console.log(swimmer);
+    console.log(swimmer);*/
 })();

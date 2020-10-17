@@ -17,5 +17,4 @@ const createSwimmer = (firstName, lastName, birthDate, sex) => {
         mongoName: "properf"
     });
     const em = DI.em.fork();
-    console.log(swimmer);
 })();
