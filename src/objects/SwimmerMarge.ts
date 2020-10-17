@@ -23,6 +23,7 @@ export class SwimmerMarge extends BaseEntity {
     season: ESeason;
 
     constructor(marge: number, swimmer: Swimmer, distance: ECourseDistance, type: ECourseType, season: ESeason) {
+        super();
         this.distance = distance;
         this.marge = marge;
         this.season = season;

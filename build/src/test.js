@@ -14,16 +14,8 @@ const createSwimmer = (firstName, lastName, birthDate, sex) => {
 (async () => {
     const DI = await index_1.createConnection({
         mongoHost: "mongodb://srv1.poneyhost.eu:27017",
-        mongoName: "properf-test"
+        mongoName: "properf"
     });
     const em = DI.em.fork();
-    const swimmer = await em
-        .getRepository(entities_1.Swimmer)
-        .findOne({ id: '5f8b08bbec8f046593a11669' }, ['clubs']);
-    if (!swimmer)
-        throw new Error();
-    const course = await em.getRepository(entities_1.CourseFormated).findOne({ id: "5f8b08d833c5bb669af6a0b3" });
-    if (!course)
-        throw new Error();
     console.log(swimmer);
 })();

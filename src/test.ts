@@ -19,7 +19,7 @@ const createSwimmer = (firstName: string, lastName: string, birthDate: Date, sex
 (async () => {
     const DI = await createConnection({
         mongoHost: "mongodb://srv1.poneyhost.eu:27017",
-        mongoName: "properf-test"
+        mongoName: "properf"
     });
 
     const em = DI.em.fork();
@@ -88,21 +88,21 @@ const createSwimmer = (firstName: string, lastName: string, birthDate: Date, sex
         .map(bill => bill.price)
         .reduce((prev, bill) => prev + bill) + " $")*/
 
-    const swimmer = await em
+    /*const swimmer = await em
         .getRepository<Swimmer>(Swimmer)
-        .findOne({ id: '5f8b08bbec8f046593a11669' }, ['clubs']);
+        .findOne({ id: '5f8975f3f9d31522baadd678' }, ['clubs']);
 
     if (!swimmer)
-        throw new Error();
+        throw new Error();*/
 
     //let course = new CourseFormated(10.1, swimmer, swimmer?.clubs.getItems()[0], new Date(), 14, ESeason.S_2001, ESwimmerCategory.AVENIRS, EBassin.B_100M, ECourseType.BRASSE, ECourseDistance.D_100, ENiveauCompetition.DEPARTEMENTALE);
 
     //em.persistAndFlush([course]);
     //allSwimmers[0].records.add(new SwimmerRecord(, ECourseDistance.D_100, ECourseType.BRASSE, ESeason.S_2001))
 
-    const course = await em.getRepository<CourseFormated>(CourseFormated).findOne({ id: "5f8b08d833c5bb669af6a0b3" })
+    /*const course = await em.getRepository<CourseFormated>(CourseFormated).findOne({ id: "5f8b08d833c5bb669af6a0b3" })
     if (!course)
         throw new Error();
-
+*/
     console.log(swimmer);
 })();

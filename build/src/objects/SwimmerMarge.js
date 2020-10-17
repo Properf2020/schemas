@@ -17,6 +17,7 @@ const enums_2 = require("../enums");
 const enums_3 = require("../enums");
 let SwimmerMarge = class SwimmerMarge extends entities_1.BaseEntity {
     constructor(marge, swimmer, distance, type, season) {
+        super();
         this.distance = distance;
         this.marge = marge;
         this.season = season;
