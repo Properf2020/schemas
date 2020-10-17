@@ -22,7 +22,7 @@ export class Swimmer extends BaseEntity {
     sex: string;
 
     @Property()
-    idFfn?: string;
+    idFFn?: string;
 
     @Property()
     user = null;
