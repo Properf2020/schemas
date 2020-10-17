@@ -16,13 +16,14 @@ const enums_1 = require("../enums");
 const enums_2 = require("../enums");
 const enums_3 = require("../enums");
 let SwimmerMarge = class SwimmerMarge extends entities_1.BaseEntity {
-    constructor(marge, swimmer, distance, type, season) {
+    constructor(marge, swimmer, distance, type, season, bassin) {
         super();
         this.distance = distance;
         this.marge = marge;
         this.season = season;
         this.type = type;
         this.swimmer = swimmer;
+        this.bassin = bassin;
     }
 };
 __decorate([
@@ -34,19 +35,23 @@ __decorate([
     __metadata("design:type", entities_1.Swimmer)
 ], SwimmerMarge.prototype, "swimmer", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], SwimmerMarge.prototype, "distance", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", String)
 ], SwimmerMarge.prototype, "type", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Enum(),
     __metadata("design:type", Number)
 ], SwimmerMarge.prototype, "season", void 0);
+__decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], SwimmerMarge.prototype, "bassin", void 0);
 SwimmerMarge = __decorate([
     core_1.Entity(),
-    __metadata("design:paramtypes", [Number, entities_1.Swimmer, String, String, Number])
+    __metadata("design:paramtypes", [Number, entities_1.Swimmer, String, String, Number, String])
 ], SwimmerMarge);
 exports.SwimmerMarge = SwimmerMarge;

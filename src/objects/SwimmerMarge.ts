@@ -1,6 +1,6 @@
-import { Entity, ManyToOne, Property } from "@mikro-orm/core";
+import { Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
 import { BaseEntity, Swimmer } from "../entities";
-import { ESeason } from "../enums";
+import { EBassin, ESeason } from "../enums";
 import { ECourseDistance } from "../enums";
 import { ECourseType } from "../enums";
 
@@ -13,21 +13,25 @@ export class SwimmerMarge extends BaseEntity {
     @ManyToOne()
     swimmer: Swimmer;
 
-    @Property()
+    @Enum()
     distance: ECourseDistance;
 
-    @Property()
+    @Enum()
     type: ECourseType;
 
-    @Property()
+    @Enum()
     season: ESeason;
 
-    constructor(marge: number, swimmer: Swimmer, distance: ECourseDistance, type: ECourseType, season: ESeason) {
+    @Enum()
+    bassin: EBassin;
+
+    constructor(marge: number, swimmer: Swimmer, distance: ECourseDistance, type: ECourseType, season: ESeason, bassin: EBassin) {
         super();
         this.distance = distance;
         this.marge = marge;
         this.season = season;
         this.type = type;
         this.swimmer = swimmer;
+        this.bassin = bassin;
     }
 }
