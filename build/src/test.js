@@ -5,8 +5,8 @@ const index_1 = require("./index");
 const createBill = (price, club, paymentStatus) => {
     return new entities_1.Bill(new Date(), new Date(), price, club, paymentStatus);
 };
-const createClub = (name, idffn) => {
-    return new entities_1.Club(name, idffn);
+const createClub = (name, idffn, region, departement) => {
+    return new entities_1.Club(name, idffn, departement, region);
 };
 const createSwimmer = (firstName, lastName, birthDate, sex) => {
     return new entities_1.Swimmer(firstName, lastName, birthDate, sex);

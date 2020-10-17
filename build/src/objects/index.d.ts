@@ -3,3 +3,7 @@ export * from './Note';
 export * from './SwimmerMarge';
 export * from './SwimmerRecord';
 export * from './UserPreference';
+export * from './CourseInfo';
+export * from './StatByAge';
+export * from './StatByCategory';
+export * from './StatByNote';

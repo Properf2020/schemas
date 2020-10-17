@@ -19,6 +19,7 @@ let Swimmer = class Swimmer extends _1.BaseEntity {
         super();
         this.user = null;
         this.clubs = new core_1.Collection(this);
+        this.marges = new core_1.Collection(this);
         this.courses = new core_1.Collection(this);
         this.records = new core_1.Collection(this);
         this.firstName = firstName;
@@ -50,7 +51,7 @@ __decorate([
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
-], Swimmer.prototype, "idFFn", void 0);
+], Swimmer.prototype, "idFfn", void 0);
 __decorate([
     core_1.Property(),
     __metadata("design:type", Object)
@@ -64,8 +65,8 @@ __decorate([
     __metadata("design:type", Object)
 ], Swimmer.prototype, "clubs", void 0);
 __decorate([
-    core_1.Property(),
-    __metadata("design:type", objects_1.SwimmerMarge)
+    core_1.OneToMany(() => objects_1.SwimmerMarge, marge => marge.swimmer),
+    __metadata("design:type", Object)
 ], Swimmer.prototype, "marges", void 0);
 __decorate([
     core_1.Property(),
@@ -76,7 +77,7 @@ __decorate([
     __metadata("design:type", Object)
 ], Swimmer.prototype, "courses", void 0);
 __decorate([
-    core_1.OneToMany(() => _1.CourseFormated, course => course.swimmer),
+    core_1.OneToMany(() => objects_1.SwimmerRecord, record => record.swimmer),
     __metadata("design:type", Object)
 ], Swimmer.prototype, "records", void 0);
 Swimmer = __decorate([

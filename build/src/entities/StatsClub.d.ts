@@ -1,6 +1,7 @@
 import { BaseStats } from ".";
-import { Note } from "../objects";
+import { CourseInfo } from "../objects";
+import { Club } from "./Club";
 export declare class StatsClub extends BaseStats {
-    performance: Note;
-    constructor(performance: Note);
+    club: Club;
+    constructor(club: Club, course: CourseInfo);
 }

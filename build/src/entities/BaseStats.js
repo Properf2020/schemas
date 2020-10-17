@@ -14,17 +14,32 @@ const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
 const objects_1 = require("../objects");
 let BaseStats = class BaseStats extends _1.BaseEntity {
-    constructor(performance) {
+    constructor(course) {
         super();
-        this.performance = performance;
+        this.statsByNote = [];
+        this.statsByAge = [];
+        this.statsByCategory = [];
+        this.course = course;
     }
 };
 __decorate([
     core_1.Property(),
-    __metadata("design:type", objects_1.Note)
-], BaseStats.prototype, "performance", void 0);
+    __metadata("design:type", objects_1.CourseInfo)
+], BaseStats.prototype, "course", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", Array)
+], BaseStats.prototype, "statsByNote", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", Array)
+], BaseStats.prototype, "statsByAge", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", Array)
+], BaseStats.prototype, "statsByCategory", void 0);
 BaseStats = __decorate([
     core_1.Entity(),
-    __metadata("design:paramtypes", [objects_1.Note])
+    __metadata("design:paramtypes", [objects_1.CourseInfo])
 ], BaseStats);
 exports.BaseStats = BaseStats;

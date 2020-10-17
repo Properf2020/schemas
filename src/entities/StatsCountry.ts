@@ -1,17 +1,17 @@
-import { Entity, Property } from "@mikro-orm/core";
+import { ECountry } from "../enums";
+import { Entity, Enum, Property } from "@mikro-orm/core";
 import { BaseStats } from ".";
-import { Note } from "../objects";
+import { CourseInfo, Note } from "../objects";
 import { StatsCountryRepository } from "../repositories";
 
 @Entity({ customRepository: () => StatsCountryRepository })
 export class StatsCountry extends BaseStats {
 
-    @Property()
-    performance: Note;
+    @Enum()
+    country: ECountry;
 
-    constructor(performance: Note) {
-        super(performance);
-        this.performance = performance;
+    constructor(country: ECountry, course: CourseInfo) {
+        super(course);
+        this.country = country;
     }
-
 }

@@ -21,9 +21,6 @@ export class CourseRaw extends BaseEntity {
     prenom?: string;
 
     @Property()
-    saison?: string;
-
-    @Property()
     club?: string;
 
     @Property()
@@ -42,14 +39,14 @@ export class CourseRaw extends BaseEntity {
     dateNaissance?: string;
 
     @Property()
-    departement?: string;
-
-    @Property()
-    region?: string;
-
-    @Property()
     userID?: string;
 
     @Property()
-    clubID?: string;
+    age?: number;
+
+    @Property()
+    tempsPassages?: Map<String, String>;
+
+    @Property()
+    niveauCompetition?: string;
 }

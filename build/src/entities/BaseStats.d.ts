@@ -1,6 +1,9 @@
 import { BaseEntity } from ".";
-import { Note } from "../objects";
+import { CourseInfo, StatByAge, StatByNote, StatsByCategory } from "../objects";
 export declare abstract class BaseStats extends BaseEntity {
-    performance: Note;
-    constructor(performance: Note);
+    course: CourseInfo;
+    statsByNote: StatByNote[];
+    statsByAge: StatByAge[];
+    statsByCategory: StatsByCategory[];
+    constructor(course: CourseInfo);
 }

@@ -1,6 +1,7 @@
+import { EDepartment } from "../enums";
 import { BaseStats } from ".";
-import { Note } from "../objects";
+import { CourseInfo } from "../objects";
 export declare class StatsDepartment extends BaseStats {
-    performance: Note;
-    constructor(performance: Note);
+    departement: EDepartment;
+    constructor(departement: EDepartment, course: CourseInfo);
 }

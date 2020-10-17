@@ -1,6 +1,7 @@
+import { ERegion } from "../enums";
 import { BaseStats } from ".";
-import { Note } from "../objects";
+import { CourseInfo } from "../objects";
 export declare class StatsRegion extends BaseStats {
-    performance: Note;
-    constructor(performance: Note);
+    region: ERegion;
+    constructor(region: ERegion, course: CourseInfo);
 }

@@ -1,15 +1,24 @@
 import { Entity, Property } from "@mikro-orm/core";
 import { BaseEntity } from ".";
-import { Note } from "../objects";
+import { CourseInfo, Note, StatByAge, StatByNote, StatsByCategory } from "../objects";
 
 @Entity()
 export abstract class BaseStats extends BaseEntity {
 
     @Property()
-    performance: Note;
+    course: CourseInfo;
 
-    constructor(performance: Note) {
+    @Property()
+    statsByNote: StatByNote[] = [];
+
+    @Property()
+    statsByAge: StatByAge[] = [];
+
+    @Property()
+    statsByCategory: StatsByCategory[] = [];
+
+    constructor(course: CourseInfo) {
         super();
-        this.performance = performance;
+        this.course = course;
     }
 }

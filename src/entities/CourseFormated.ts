@@ -1,6 +1,6 @@
 import { Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
 import { BaseEntity, Club, Swimmer } from ".";
-import { EBassin, ESeason, ESwimmerCategory } from "../enums";
+import { EBassin, ESeason, ESwimmerCategory, ENiveauCompetition } from "../enums";
 import { ECourseDistance } from "../enums/ECourseDistance";
 import { ECourseType } from "../enums/ECourseType";
 import { Note } from "../objects";
@@ -45,7 +45,13 @@ export class CourseFormated extends BaseEntity {
     @Property()
     notes?: Note;
 
-    constructor(time: number, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, type: ECourseType, distance: ECourseDistance) {
+    @Property()
+    tempsPassages?: Map<String, String>;
+
+    @Enum()
+    niveauCompetition: ENiveauCompetition;
+
+    constructor(time: number, swimmer: Swimmer, club: Club, date: Date, swimmerAge: number, season: ESeason, swimmerCategory: ESwimmerCategory, bassin: EBassin, type: ECourseType, distance: ECourseDistance, niveauCompetition: ENiveauCompetition) {
         super();
         this.club = club;
         this.bassin = bassin;
@@ -57,5 +63,6 @@ export class CourseFormated extends BaseEntity {
         this.swimmerCagegory = swimmerCategory;
         this.type = type;
         this.distance = distance;
+        this.niveauCompetition = niveauCompetition;
     }
 }

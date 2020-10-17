@@ -18,7 +18,7 @@ const ECourseType_1 = require("../enums/ECourseType");
 const objects_1 = require("../objects");
 const repositories_1 = require("../repositories");
 let CourseFormated = class CourseFormated extends _1.BaseEntity {
-    constructor(time, swimmer, club, date, swimmerAge, season, swimmerCategory, bassin, type, distance) {
+    constructor(time, swimmer, club, date, swimmerAge, season, swimmerCategory, bassin, type, distance, niveauCompetition) {
         super();
         this.record = _1.Swimmer;
         this.club = club;
@@ -31,6 +31,7 @@ let CourseFormated = class CourseFormated extends _1.BaseEntity {
         this.swimmerCagegory = swimmerCategory;
         this.type = type;
         this.distance = distance;
+        this.niveauCompetition = niveauCompetition;
     }
 };
 __decorate([
@@ -81,8 +82,16 @@ __decorate([
     core_1.Property(),
     __metadata("design:type", objects_1.Note)
 ], CourseFormated.prototype, "notes", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", Map)
+], CourseFormated.prototype, "tempsPassages", void 0);
+__decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], CourseFormated.prototype, "niveauCompetition", void 0);
 CourseFormated = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.CourseFormatedRepository }),
-    __metadata("design:paramtypes", [Number, _1.Swimmer, _1.Club, Date, Number, Number, String, String, String, String])
+    __metadata("design:paramtypes", [Number, _1.Swimmer, _1.Club, Date, Number, Number, String, String, String, String, String])
 ], CourseFormated);
 exports.CourseFormated = CourseFormated;

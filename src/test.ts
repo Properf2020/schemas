@@ -1,14 +1,14 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Bill, Club, Swimmer } from './entities';
-import { EPaymentStatus } from './enums';
+import { EDepartment, EPaymentStatus, ERegion } from './enums';
 import { createConnection } from './index'
 
 const createBill = (price: number, club: Club, paymentStatus: EPaymentStatus): Bill => {
     return new Bill(new Date(), new Date(), price, club, paymentStatus);
 }
 
-const createClub = (name: string, idffn: number): Club => {
-    return new Club(name, idffn);
+const createClub = (name: string, idffn: number, region: ERegion, departement: EDepartment): Club => {
+    return new Club(name, idffn, departement, region);
 }
 
 const createSwimmer = (firstName: string, lastName: string, birthDate: Date, sex: string): Swimmer => {

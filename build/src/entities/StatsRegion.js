@@ -10,22 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StatsRegion = void 0;
+const enums_1 = require("../enums");
 const core_1 = require("@mikro-orm/core");
 const _1 = require(".");
 const objects_1 = require("../objects");
 const repositories_1 = require("../repositories");
 let StatsRegion = class StatsRegion extends _1.BaseStats {
-    constructor(performance) {
-        super(performance);
-        this.performance = performance;
+    constructor(region, course) {
+        super(course);
+        this.region = region;
     }
 };
 __decorate([
-    core_1.Property(),
-    __metadata("design:type", objects_1.Note)
-], StatsRegion.prototype, "performance", void 0);
+    core_1.Enum(),
+    __metadata("design:type", String)
+], StatsRegion.prototype, "region", void 0);
 StatsRegion = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.StatsRegionRepository }),
-    __metadata("design:paramtypes", [objects_1.Note])
+    __metadata("design:paramtypes", [String, objects_1.CourseInfo])
 ], StatsRegion);
 exports.StatsRegion = StatsRegion;

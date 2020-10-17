@@ -15,3 +15,7 @@ __exportStar(require("./Note"), exports);
 __exportStar(require("./SwimmerMarge"), exports);
 __exportStar(require("./SwimmerRecord"), exports);
 __exportStar(require("./UserPreference"), exports);
+__exportStar(require("./CourseInfo"), exports);
+__exportStar(require("./StatByAge"), exports);
+__exportStar(require("./StatByCategory"), exports);
+__exportStar(require("./StatByNote"), exports);

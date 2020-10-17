@@ -37,10 +37,6 @@ __decorate([
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
-], CourseRaw.prototype, "saison", void 0);
-__decorate([
-    core_1.Property(),
-    __metadata("design:type", String)
 ], CourseRaw.prototype, "club", void 0);
 __decorate([
     core_1.Property(),
@@ -65,19 +61,19 @@ __decorate([
 __decorate([
     core_1.Property(),
     __metadata("design:type", String)
-], CourseRaw.prototype, "departement", void 0);
-__decorate([
-    core_1.Property(),
-    __metadata("design:type", String)
-], CourseRaw.prototype, "region", void 0);
-__decorate([
-    core_1.Property(),
-    __metadata("design:type", String)
 ], CourseRaw.prototype, "userID", void 0);
 __decorate([
     core_1.Property(),
+    __metadata("design:type", Number)
+], CourseRaw.prototype, "age", void 0);
+__decorate([
+    core_1.Property(),
+    __metadata("design:type", Map)
+], CourseRaw.prototype, "tempsPassages", void 0);
+__decorate([
+    core_1.Property(),
     __metadata("design:type", String)
-], CourseRaw.prototype, "clubID", void 0);
+], CourseRaw.prototype, "niveauCompetition", void 0);
 CourseRaw = __decorate([
     core_1.Unique({ properties: ['userID', 'date', 'distance', 'course'] }),
     core_1.Entity()

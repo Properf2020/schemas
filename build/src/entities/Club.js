@@ -11,19 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Club = void 0;
 const core_1 = require("@mikro-orm/core");
-const repositories_1 = require("../repositories");
 const _1 = require(".");
 const enums_1 = require("../enums");
+const EDepartment_1 = require("../enums/EDepartment");
+const ERegion_1 = require("../enums/ERegion");
 const objects_1 = require("../objects");
+const repositories_1 = require("../repositories");
 let Club = class Club extends _1.BaseEntity {
-    constructor(name, idFfn) {
+    constructor(name, idFfn, department, region) {
         super();
         this.plan = enums_1.EPlan.BASE;
         this.users = new core_1.Collection(this);
         this.swimmers = new core_1.Collection(this);
         this.name = name;
         this.idFfn = idFfn;
+        this.department = department;
         this.bills = new core_1.Collection(this);
+        this.region = region;
     }
 };
 __decorate([
@@ -39,6 +43,14 @@ __decorate([
     __metadata("design:type", Number)
 ], Club.prototype, "idFfn", void 0);
 __decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], Club.prototype, "department", void 0);
+__decorate([
+    core_1.Enum(),
+    __metadata("design:type", String)
+], Club.prototype, "region", void 0);
+__decorate([
     core_1.ManyToMany(() => objects_1.ClubRole),
     __metadata("design:type", Object)
 ], Club.prototype, "users", void 0);
@@ -52,6 +64,6 @@ __decorate([
 ], Club.prototype, "bills", void 0);
 Club = __decorate([
     core_1.Entity({ customRepository: () => repositories_1.ClubRepository }),
-    __metadata("design:paramtypes", [String, Number])
+    __metadata("design:paramtypes", [String, Number, String, String])
 ], Club);
 exports.Club = Club;

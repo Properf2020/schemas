@@ -1,6 +1,6 @@
 import { Collection, Entity, ManyToMany, ManyToOne, OneToMany, Property } from '@mikro-orm/core';
 import { BaseEntity, Club, CourseFormated, Group } from '.';
-import { Note, SwimmerMarge } from '../objects';
+import { Note, SwimmerMarge, SwimmerRecord } from '../objects';
 import { SwimmerRepository } from '../repositories';
 
 @Entity({ customRepository: () => SwimmerRepository })
@@ -22,7 +22,7 @@ export class Swimmer extends BaseEntity {
     sex: string;
 
     @Property()
-    idFFn?: string;
+    idFfn?: string;
 
     @Property()
     user = null;
@@ -33,8 +33,8 @@ export class Swimmer extends BaseEntity {
     @ManyToMany(() => Club, club => club.swimmers)
     clubs = new Collection<Club>(this);
 
-    @Property()
-    marges?: SwimmerMarge;
+    @OneToMany(() => SwimmerMarge, marge => marge.swimmer)
+    marges = new Collection<SwimmerMarge>(this);
 
     @Property()
     notes?: Note;
@@ -42,8 +42,8 @@ export class Swimmer extends BaseEntity {
     @OneToMany(() => CourseFormated, course => course.swimmer)
     courses = new Collection<CourseFormated>(this);
 
-    @OneToMany(() => CourseFormated, course => course.swimmer)
-    records = new Collection<CourseFormated>(this);
+    @OneToMany(() => SwimmerRecord, record => record.swimmer)
+    records = new Collection<SwimmerRecord>(this);
 
     constructor(firstName: string, lastName: string, birthDate: Date, sex: string) {
         super();

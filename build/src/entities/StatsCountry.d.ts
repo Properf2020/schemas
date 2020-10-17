@@ -1,6 +1,7 @@
+import { ECountry } from "../enums";
 import { BaseStats } from ".";
-import { Note } from "../objects";
+import { CourseInfo } from "../objects";
 export declare class StatsCountry extends BaseStats {
-    performance: Note;
-    constructor(performance: Note);
+    country: ECountry;
+    constructor(country: ECountry, course: CourseInfo);
 }

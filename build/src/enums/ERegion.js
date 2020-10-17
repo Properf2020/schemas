@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ERegion = void 0;
+var ERegion;
+(function (ERegion) {
+    ERegion["R_GUADELOUPE"] = "01";
+    ERegion["R_MARTINIQUE"] = "02";
+    ERegion["R_GUYANE"] = "03";
+    ERegion["R_LA_REUNION"] = "04";
+    ERegion["R_MAYOTTE"] = "06";
+    ERegion["R_ILE_DE_FRANCE"] = "11";
+    ERegion["R_CENTRE_VAL_DE_LOIRE"] = "24";
+    ERegion["R_BOURGOGNE_FRANCHE_COMTE"] = "27";
+    ERegion["R_NORMANDIE"] = "28";
+    ERegion["R_HAUTS_DE_FRANCE"] = "32";
+    ERegion["R_GRANR_EST"] = "44";
+    ERegion["R_PAYS_DE_LA_LOIRE"] = "52";
+    ERegion["R_BRETAGNE"] = "53";
+    ERegion["R_NOUVELLE_AQUITAINE"] = "75";
+    ERegion["R_OCCITANIE"] = "76";
+    ERegion["R_AUVERGNE_RHONE_ALPES"] = "84";
+    ERegion["R_PROVENCE_ALPES_COTE_D_AZUR"] = "93";
+    ERegion["R_CORSE"] = "94";
+})(ERegion = exports.ERegion || (exports.ERegion = {}));
