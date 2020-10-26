@@ -3,25 +3,10 @@
   "version": "1.1.0",
   "description": "",
   "devDependencies": {
-    "@types/jest": "~26.0.10",
-    "@types/node": "~12.12",
-    "@typescript-eslint/eslint-plugin": "~3.9.1",
-    "@typescript-eslint/parser": "~3.9.1",
-    "eslint": "~7.7.0",
-    "eslint-config-prettier": "~6.11.0",
-    "eslint-plugin-jest": "~23.20.0",
     "jest": "~26.4.2",
-    "prettier": "~2.0.5",
-    "rimraf": "~3.0.2",
-    "ts-jest": "~26.2.0",
-    "tsutils": "~3.17.0",
-    "typescript": "~4.0.2"
+    "prettier": "~2.0.5"
   },
   "scripts": {
-    "clean": "rimraf coverage build tmp",
-    "build": "tsc -p tsconfig.release.json",
-    "build:watch": "tsc -w -p tsconfig.release.json",
-    "prepare": "npm run build",
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
@@ -29,22 +14,8 @@
     "type": "git",
     "url": "git+https://github.com/Properf2020/schemas.git"
   },
-  "dependencies": {
-    "@mikro-orm/core": "^4.0.0-rc.8",
-    "@mikro-orm/mongo-highlighter": "^1.0.0",
-    "@mikro-orm/mongodb": "^4.0.0-rc.8",
-    "@mikro-orm/reflection": "^4.0.0-rc.8",
-    "ts-node": "^9.0.0",
-    "tslib": "~2.0.1"
-  },
-  "mikro-orm": {
-    "useTsNode": true,
-    "configPaths": [
-      "./src/mikro-orm.config.ts",
-      "./build/mikro-orm.config.js"
-    ]
-  },
+  "dependencies": {},
   "files": [
-    "build/**/*"
+    "src/**/*"
   ]
 }
