@@ -15,7 +15,10 @@
     "url": "git+https://github.com/Properf2020/schemas.git"
   },
   "dependencies": {
-    "mongoose": "^5.10.10"
+    "bcryptjs": "^2.4.3",
+    "crypto": "^1.0.1",
+    "mongoose": "^5.10.10",
+    "validator": "^13.1.17"
   },
   "files": [
     "src/**/*"
