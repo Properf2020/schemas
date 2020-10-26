@@ -59,6 +59,6 @@ const courseRawSchema = new mongoose.Schema({
   },
 });
 
-const CourseRaw = mongoose.model('CourseRaw', courseRawSchema);
+const CourseRaw = mongoose.model('course-raw', courseRawSchema);
 
 module.exports = CourseRaw;

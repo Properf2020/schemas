@@ -63,6 +63,6 @@ swimmerSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Swimmer = mongoose.model('Swimmer', swimmerSchema);
+const Swimmer = mongoose.model('swimmers', swimmerSchema);
 
 module.exports = Swimmer;

@@ -47,6 +47,6 @@ swimmerRecordSchema.pre(/^find/, function (next) {
   next();
 });
 
-const SwimmerRecord = mongoose.model('SwimmerRecord', swimmerRecordSchema);
+const SwimmerRecord = mongoose.model('swimmer-record', swimmerRecordSchema);
 
 module.exports = SwimmerRecord;

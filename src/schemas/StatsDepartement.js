@@ -225,7 +225,7 @@ statsDepartementSchema.pre(/^find/, function (next) {
 });
 
 const StatsDepartement = mongoose.model(
-  'StatsDepartement',
+  'stats-departement',
   statsDepartementSchema
 );
 

@@ -42,6 +42,6 @@ swimmerMargeSchema.pre(/^find/, function (next) {
   next();
 });
 
-const SwimmerMarge = mongoose.model('SwimmerMarge', swimmerMargeSchema);
+const SwimmerMarge = mongoose.model('swimmer-marge', swimmerMargeSchema);
 
 module.exports = SwimmerMarge;
