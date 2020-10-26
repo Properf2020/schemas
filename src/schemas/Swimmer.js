@@ -31,7 +31,7 @@ const swimmerSchema = new mongoose.Schema({
   clubs: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'clubs',
+      ref: 'club',
     },
   ],
   courses: [
@@ -63,6 +63,6 @@ swimmerSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Swimmer = mongoose.model('swimmers', swimmerSchema);
+const Swimmer = mongoose.model('swimmer', swimmerSchema);
 
 module.exports = Swimmer;

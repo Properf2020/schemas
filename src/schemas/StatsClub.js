@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const statsClubSchema = new mongoose.Schema({
   club: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Club',
+    ref: 'club',
     required: [true, 'Un club doit être renseigné'],
   },
   course: {

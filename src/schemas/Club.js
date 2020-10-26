@@ -39,13 +39,13 @@ const clubSchema = new mongoose.Schema({
   users: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'users',
+      ref: 'user',
     },
   ],
   swimmers: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'swimmers',
+      ref: 'swimmer',
     },
   ],
   bills: [
@@ -56,6 +56,6 @@ const clubSchema = new mongoose.Schema({
   ],
 });
 
-const Club = mongoose.model('clubs', clubSchema);
+const Club = mongoose.model('club', clubSchema);
 
 module.exports = Club;

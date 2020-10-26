@@ -25,7 +25,7 @@ const swimmerMargeSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'swimmers',
+    ref: 'swimmer',
   },
   marge: {
     type: Number,

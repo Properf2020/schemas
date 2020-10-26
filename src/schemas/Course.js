@@ -41,12 +41,12 @@ const courseSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'swimmers',
+    ref: 'swimmer',
     required: [true, 'Une course doit avoir un nageur'],
   },
   club: {
     type: mongoose.Schema.ObjectId,
-    ref: 'clubs',
+    ref: 'club',
     required: [true, 'Une course doit avoir un club'],
   },
   notes: {
