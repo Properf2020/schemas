@@ -32,42 +32,42 @@ const statsDepartementSchema = new mongoose.Schema({
       moyennePerf: Number,
       maxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       minPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       variancePerf: Number,
       moyenneMarges: Number,
       maxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       minMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       varianceMarges: Number,
       numCurrentCourses: Number,
       currentMoyennePerf: Number,
       currentMaxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       currentMinPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       currentVariancePerf: Number,
       currentMoyenneMarges: Number,
       currentMaxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       currentMinMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       currentVarianceMarges: Number,
     },
@@ -82,42 +82,42 @@ const statsDepartementSchema = new mongoose.Schema({
       moyennePerf: Number,
       maxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       minPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       variancePerf: Number,
       moyenneMarges: Number,
       maxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       minMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       varianceMarges: Number,
       numCurrentCourses: Number,
       currentMoyennePerf: Number,
       currentMaxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       currentMinPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
       },
       currentVariancePerf: Number,
       currentMoyenneMarges: Number,
       currentMaxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       currentMinMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'SwimmerMarge',
+        ref: 'swimmer-marge',
       },
       currentVarianceMarges: Number,
     },
@@ -225,7 +225,7 @@ statsDepartementSchema.pre(/^find/, function (next) {
 });
 
 const StatsDepartement = mongoose.model(
-  'StatsDepartement',
+  'stats-departement',
   statsDepartementSchema
 );
 

@@ -41,12 +41,12 @@ const courseSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Swimmer',
+    ref: 'swimmers',
     required: [true, 'Une course doit avoir un nageur'],
   },
   club: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Club',
+    ref: 'clubs',
     required: [true, 'Une course doit avoir un club'],
   },
   notes: {
@@ -75,6 +75,6 @@ courseSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Course = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('courses', courseSchema);
 
 module.exports = Course;

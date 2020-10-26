@@ -19,6 +19,6 @@ const clubRawSchema = new mongoose.Schema({
   },
 });
 
-const ClubRaw = mongoose.model('ClubRaw', clubRawSchema);
+const ClubRaw = mongoose.model('club-raw', clubRawSchema);
 
 module.exports = ClubRaw;

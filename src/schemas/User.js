@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
   },
   teacher: {
     type: mongoose.Schema.ObjectId,
-    ref: 'User',
+    ref: 'user',
   },
   group: Number,
   email: {
@@ -126,6 +126,6 @@ userSchema.methods.createPWResetToken = function () {
 
   return resetToken;
 };
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('users', userSchema);
 
 module.exports = User;
