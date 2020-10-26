@@ -14,7 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/Properf2020/schemas.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mongoose": "^5.10.10"
+  },
   "files": [
     "src/**/*"
   ]
