@@ -25,11 +25,11 @@ const swimmerRecordSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'swimmer',
+    ref: 'Swimmer',
   },
   course: {
     type: mongoose.Schema.ObjectId,
-    ref: 'courses',
+    ref: 'Course',
   },
 });
 
@@ -47,6 +47,6 @@ swimmerRecordSchema.pre(/^find/, function (next) {
   next();
 });
 
-const SwimmerRecord = mongoose.model('swimmer-record', swimmerRecordSchema);
+const SwimmerRecord = mongoose.model('SwimmerRecord', swimmerRecordSchema);
 
 module.exports = SwimmerRecord;

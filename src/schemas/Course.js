@@ -33,20 +33,20 @@ const courseSchema = new mongoose.Schema({
     ],
     required: [true, 'Une course doit avoir une saison'],
   },
-  place: String,
+  place: { type: String, lowercase: true, trim: true },
   niveauCompetition: {
     type: String,
     enums: ['DEP', 'REG', 'NAT', 'ZON', 'INT'],
-    required: [true, 'Une course doit avoir un niveau de compétition'],
+    // required: [true, 'Une course doit avoir un niveau de compétition'],
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'swimmer',
+    ref: 'Swimmer',
     required: [true, 'Une course doit avoir un nageur'],
   },
   club: {
     type: mongoose.Schema.ObjectId,
-    ref: 'club',
+    ref: 'Club',
     required: [true, 'Une course doit avoir un club'],
   },
   notes: {
@@ -54,6 +54,15 @@ const courseSchema = new mongoose.Schema({
     region: Number,
     departement: Number,
     club: Number,
+  },
+  swimmerAge: {
+    type: Number,
+    required: [true, "L'age du nageur doit etre fourni"],
+  },
+  swimmerCategory: {
+    type: String,
+    required: [true, 'La catégory du nageur doit etre fournie'],
+    enums: ['AVENIRS', 'JEUNES', 'JUNIORS', 'SENIORS'],
   },
 });
 
@@ -75,6 +84,6 @@ courseSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Course = mongoose.model('courses', courseSchema);
+const Course = mongoose.model('Course', courseSchema);
 
 module.exports = Course;

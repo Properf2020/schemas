@@ -32,42 +32,42 @@ const statsRegionSchema = new mongoose.Schema({
       moyennePerf: Number,
       maxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       minPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       variancePerf: Number,
       moyenneMarges: Number,
       maxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marge',
+        ref: 'SwimmerMarge',
       },
       minMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marge',
+        ref: 'SwimmerMarge',
       },
       varianceMarges: Number,
       numCurrentCourses: Number,
       currentMoyennePerf: Number,
       currentMaxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       currentMinPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       currentVariancePerf: Number,
       currentMoyenneMarges: Number,
       currentMaxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marhe',
+        ref: 'SwimmerMarge',
       },
       currentMinMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marhe',
+        ref: 'SwimmerMarge',
       },
       currentVarianceMarges: Number,
     },
@@ -82,42 +82,42 @@ const statsRegionSchema = new mongoose.Schema({
       moyennePerf: Number,
       maxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       minPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       variancePerf: Number,
       moyenneMarges: Number,
       maxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marhe',
+        ref: 'SwimmerMarge',
       },
       minMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marhe',
+        ref: 'SwimmerMarge',
       },
       varianceMarges: Number,
       numCurrentCourses: Number,
       currentMoyennePerf: Number,
       currentMaxPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       currentMinPerf: {
         type: mongoose.Schema.ObjectId,
-        ref: 'courses',
+        ref: 'Course',
       },
       currentVariancePerf: Number,
       currentMoyenneMarges: Number,
       currentMaxMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marge',
+        ref: 'SwimmerMarge',
       },
       currentMinMarges: {
         type: mongoose.Schema.ObjectId,
-        ref: 'swimmer-marge',
+        ref: 'SwimmerMarge',
       },
       currentVarianceMarges: Number,
     },
@@ -224,6 +224,6 @@ statsRegionSchema.pre(/^find/, function (next) {
   next();
 });
 
-const StatsRegion = mongoose.model('stats-region', statsRegionSchema);
+const StatsRegion = mongoose.model('StatsRegion', statsRegionSchema);
 
 module.exports = StatsRegion;

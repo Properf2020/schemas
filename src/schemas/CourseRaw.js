@@ -10,7 +10,7 @@ const courseRawSchema = new mongoose.Schema({
     required: [true, 'Un course doit avoir une distance'],
   },
   sexeNageur: {
-    type: String,
+    type: Number,
     required: [true, 'Le nageur de la course doit avoir un sexe'],
   },
   nom: {
@@ -25,6 +25,7 @@ const courseRawSchema = new mongoose.Schema({
     type: String,
     required: [true, 'La course doit avoir un club'],
   },
+  clubID: Number,
   tailleBassin: {
     type: String,
     required: [true, 'La course doit avoir une taille de bassin'],
@@ -59,6 +60,6 @@ const courseRawSchema = new mongoose.Schema({
   },
 });
 
-const CourseRaw = mongoose.model('course-raw', courseRawSchema);
+const CourseRaw = mongoose.model('course-raws', courseRawSchema);
 
 module.exports = CourseRaw;

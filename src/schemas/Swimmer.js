@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const swimmerSchema = new mongoose.Schema({
-  idFFn: {
+  idFFN: {
     type: Number,
     required: [true, 'Un swimmer doit avoir un id FFN'],
+    unique: [true, 'ID FNN déjà utilisé'],
   },
   firstName: {
     type: String,
@@ -31,27 +32,31 @@ const swimmerSchema = new mongoose.Schema({
   clubs: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'club',
+      ref: 'Club',
     },
   ],
   courses: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'courses',
+      ref: 'Course',
     },
   ],
   records: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'swimmer-record',
+      ref: 'SwimmerRecord',
     },
   ],
   marges: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'swimmer-marge',
+      ref: 'SwimmerMarge',
     },
   ],
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 swimmerSchema.pre(/^find/, function (next) {
@@ -63,6 +68,6 @@ swimmerSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Swimmer = mongoose.model('swimmer', swimmerSchema);
+const Swimmer = mongoose.model('Swimmer', swimmerSchema);
 
 module.exports = Swimmer;

@@ -6,9 +6,10 @@ const clubSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Un club doit avoir un nom'],
-    unique: [true, 'Nom de club déjà existant'],
+    trim: true,
+    // unique: [true, 'Nom de club déjà existant'],
   },
-  idFfn: {
+  idFFN: {
     type: Number,
     required: [true, 'Un club doit avoir un identifiant FFN'],
     unique: [true, 'ID FNN déjà utilisé'],
@@ -27,9 +28,9 @@ const clubSchema = new mongoose.Schema({
   },
   Country: {
     type: String,
-    required: [true, 'Un club doit avoir un pays'],
     trim: true,
     enum: ['FRANCE'],
+    default: 'FRANCE',
   },
   plan: {
     type: String,
@@ -39,13 +40,13 @@ const clubSchema = new mongoose.Schema({
   users: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'user',
+      ref: 'User',
     },
   ],
   swimmers: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'swimmer',
+      ref: 'Swimmer',
     },
   ],
   bills: [
@@ -56,6 +57,6 @@ const clubSchema = new mongoose.Schema({
   ],
 });
 
-const Club = mongoose.model('club', clubSchema);
+const Club = mongoose.model('Club', clubSchema);
 
 module.exports = Club;

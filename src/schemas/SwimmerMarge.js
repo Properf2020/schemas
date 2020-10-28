@@ -25,7 +25,7 @@ const swimmerMargeSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'swimmer',
+    ref: 'Swimmer',
   },
   marge: {
     type: Number,
@@ -42,6 +42,6 @@ swimmerMargeSchema.pre(/^find/, function (next) {
   next();
 });
 
-const SwimmerMarge = mongoose.model('swimmer-marge', swimmerMargeSchema);
+const SwimmerMarge = mongoose.model('SwimmerMarge', swimmerMargeSchema);
 
 module.exports = SwimmerMarge;

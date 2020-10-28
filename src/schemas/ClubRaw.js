@@ -17,8 +17,9 @@ const clubRawSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Un club doit avoir un nom'],
   },
+  idSwimmers: [String],
 });
 
-const ClubRaw = mongoose.model('club-raw', clubRawSchema);
+const ClubRaw = mongoose.model('ClubRaw', clubRawSchema);
 
 module.exports = ClubRaw;
