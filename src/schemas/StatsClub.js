@@ -23,6 +23,21 @@ const statsClubSchema = new mongoose.Schema({
       required: [true, 'Une distance doit être renseignée'],
     },
   },
+  sex: {
+    type: String,
+    enums: ['F', 'M'],
+    required: [true, 'Un sexe doit être renseigné'],
+  },
+  type: {
+    type: String,
+    enums: ['PERF', 'MARGE', 'NOTE'],
+    required: [true, 'Un type doit être renseigné'],
+  },
+  periode: {
+    type: String,
+    enums: ['CURRENT', 'ALL_TIMES'],
+    required: [true, 'Une periode doit être renseignée'],
+  },
   statsByAge: [
     {
       age: Number,

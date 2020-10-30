@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+const enums = require('../enums/enums');
+
 const courseSchema = new mongoose.Schema({
   type: {
     bassin: {
@@ -45,9 +47,35 @@ const courseSchema = new mongoose.Schema({
     required: [true, 'Une course doit avoir un nageur'],
   },
   club: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'Club',
-    required: [true, 'Une course doit avoir un club'],
+    name: {
+      type: String,
+      required: [true, 'Un club doit avoir un nom'],
+      trim: true,
+      // unique: [true, 'Nom de club déjà existant'],
+    },
+    _id: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Club',
+      required: [true, 'Un club doit avoir un identifiant FFN'],
+    },
+    departement: {
+      type: String,
+      required: [true, 'Un club doit avoir un département'],
+      trim: true,
+      enum: enums.EDepartement,
+    },
+    region: {
+      type: String,
+      required: [true, 'Un club doit avoir un région'],
+      trim: true,
+      enum: enums.ERegion,
+    },
+    country: {
+      type: String,
+      trim: true,
+      enum: ['FRANCE'],
+      default: 'FRANCE',
+    },
   },
   notes: {
     country: Number,
@@ -63,6 +91,11 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: [true, 'La catégory du nageur doit etre fournie'],
     enums: ['AVENIRS', 'JEUNES', 'JUNIORS', 'SENIORS'],
+  },
+  swimmerSex: {
+    type: String,
+    required: [true, 'Le sexe du nageur doit etre fournie'],
+    enums: ['F', 'M'],
   },
 });
 

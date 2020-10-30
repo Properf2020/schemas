@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const enums = require('../enums/enums');
 
 const statsRegionSchema = new mongoose.Schema({
-  region: {
+  name: {
     type: String,
     enums: enums.ERegion,
     required: [true, 'Une region doit être renseignée'],
@@ -24,6 +24,21 @@ const statsRegionSchema = new mongoose.Schema({
       enums: ['50M', '100M', '200M', '400M', '800M', '1500M'],
       required: [true, 'Une distance doit être renseignée'],
     },
+  },
+  sex: {
+    type: String,
+    enums: ['F', 'M'],
+    required: [true, 'Un sexe doit être renseigné'],
+  },
+  type: {
+    type: String,
+    enums: ['PERF', 'MARGE', 'NOTE'],
+    required: [true, 'Un type doit être renseigné'],
+  },
+  periode: {
+    type: String,
+    enums: ['CURRENT', 'ALL_TIMES'],
+    required: [true, 'Une periode doit être renseignée'],
   },
   statsByAge: [
     {
