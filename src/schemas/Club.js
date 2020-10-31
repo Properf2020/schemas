@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const _ = require('lodash');
 const enums = require('../enums/enums');
 
 const clubSchema = new mongoose.Schema({
@@ -13,20 +13,23 @@ const clubSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Un club doit avoir un identifiant FFN'],
     unique: [true, 'ID FNN déjà utilisé'],
+    index: true
   },
   departement: {
     type: String,
     required: [true, 'Un club doit avoir un département'],
     trim: true,
     enum: enums.EDepartement,
+    index: true
   },
   region: {
     type: String,
     required: [true, 'Un club doit avoir un région'],
     trim: true,
     enum: enums.ERegion,
+    index: true
   },
-  Country: {
+  country: {
     type: String,
     trim: true,
     enum: ['FRANCE'],
@@ -36,6 +39,7 @@ const clubSchema = new mongoose.Schema({
     type: String,
     enum: ['BASE'],
     default: 'BASE',
+    index: true
   },
   users: [
     {
@@ -55,6 +59,15 @@ const clubSchema = new mongoose.Schema({
       ref: 'Bill',
     },
   ],
+});
+
+clubSchema.index({ name: 'text' });
+
+clubSchema.pre('save', function (next) {
+  this.bills = _.uniq(this.bills);
+  this.swimmers = _.uniq(this.swimmers);
+  this.users = _.uniq(this.users);
+  next();
 });
 
 const Club = mongoose.model('Club', clubSchema);

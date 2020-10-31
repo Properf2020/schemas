@@ -5,6 +5,7 @@ const swimmerSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Un swimmer doit avoir un id FFN'],
     unique: [true, 'ID FNN déjà utilisé'],
+    index: true
   },
   firstName: {
     type: String,
@@ -28,7 +29,10 @@ const swimmerSchema = new mongoose.Schema({
     type: Date,
     required: [true, 'Un swimmer doit avoir un date de naissance'],
   },
-  seniority: Number,
+  seniority: {
+    type: Number,
+    index: true
+  },
   clubs: [
     {
       type: mongoose.Schema.ObjectId,
@@ -65,6 +69,15 @@ swimmerSchema.pre(/^find/, function (next) {
     select: '_id name departement region idFfn',
   });
 
+  next();
+});
+
+swimmerSchema.index({ firstName: 'text', lastName: 'text' });
+swimmerSchema.pre('save', function (next) {
+  this.marges = _.uniq(this.marges);
+  this.records = _.uniq(this.records);
+  this.courses = _.uniq(this.courses);
+  this.clubs = _.uniq(this.clubs);
   next();
 });
 
