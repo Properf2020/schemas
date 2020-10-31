@@ -56,7 +56,7 @@ const courseSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Swimmer',
+    ref: 'swimmer',
     required: [true, 'Une course doit avoir un nageur'],
     index: true
   },
@@ -69,7 +69,7 @@ const courseSchema = new mongoose.Schema({
     },
     _id: {
       type: mongoose.Types.ObjectId,
-      ref: 'Club',
+      ref: 'club',
       required: [true, 'Un club doit avoir un identifiant FFN'],
       index: true
     },
@@ -138,6 +138,6 @@ courseSchema.pre(/^find/, function (next) {
   next();
 });
 
-const Course = mongoose.model('Course', courseSchema);
+const Course = mongoose.model('course', courseSchema);
 
 module.exports = Course;

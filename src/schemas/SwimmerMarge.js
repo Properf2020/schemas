@@ -27,7 +27,7 @@ const swimmerMargeSchema = new mongoose.Schema({
   },
   swimmer: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Swimmer',
+    ref: 'swimmer',
   },
   swimmerAge: {
     type: Number,
@@ -52,7 +52,7 @@ const swimmerMargeSchema = new mongoose.Schema({
     },
     _id: {
       type: mongoose.Types.ObjectId,
-      ref: 'Club',
+      ref: 'club',
       required: [true, 'Un club doit avoir un identifiant FFN'],
     },
     departement: {
@@ -89,6 +89,6 @@ swimmerMargeSchema.pre(/^find/, function (next) {
   next();
 });
 
-const SwimmerMarge = mongoose.model('SwimmerMarge', swimmerMargeSchema);
+const SwimmerMarge = mongoose.model('swimmer_marge', swimmerMargeSchema);
 
 module.exports = SwimmerMarge;

@@ -27,6 +27,6 @@ clubRawSchema.pre('save', function (next) {
   next();
 });
 
-const ClubRaw = mongoose.model('ClubRaw', clubRawSchema);
+const ClubRaw = mongoose.model('club_raw', clubRawSchema);
 
 module.exports = ClubRaw;

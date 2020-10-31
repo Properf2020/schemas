@@ -36,25 +36,25 @@ const swimmerSchema = new mongoose.Schema({
   clubs: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Club',
+      ref: 'club',
     },
   ],
   courses: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Course',
+      ref: 'course',
     },
   ],
   records: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'SwimmerRecord',
+      ref: 'swimmer_record',
     },
   ],
   marges: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'SwimmerMarge',
+      ref: 'swimmer_marge',
     },
   ],
   createdAt: {
@@ -81,6 +81,6 @@ swimmerSchema.pre('save', function (next) {
   next();
 });
 
-const Swimmer = mongoose.model('Swimmer', swimmerSchema);
+const Swimmer = mongoose.model('swimmer', swimmerSchema);
 
 module.exports = Swimmer;

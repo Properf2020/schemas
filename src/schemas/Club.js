@@ -44,19 +44,19 @@ const clubSchema = new mongoose.Schema({
   users: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'User',
+      ref: 'user',
     },
   ],
   swimmers: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Swimmer',
+      ref: 'swimmer',
     },
   ],
   bills: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Bill',
+      ref: 'bill',
     },
   ],
 });
@@ -70,6 +70,6 @@ clubSchema.pre('save', function (next) {
   next();
 });
 
-const Club = mongoose.model('Club', clubSchema);
+const Club = mongoose.model('club', clubSchema);
 
 module.exports = Club;

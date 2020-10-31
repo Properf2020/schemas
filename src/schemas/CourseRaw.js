@@ -65,6 +65,6 @@ courseRawSchema.index({ 'club': 1 });
 courseRawSchema.index({ 'userID': 1 });
 courseRawSchema.index({ 'clubID': 1 });
 
-const CourseRaw = mongoose.model('course-raws', courseRawSchema);
+const CourseRaw = mongoose.model('course_raw', courseRawSchema);
 
 module.exports = CourseRaw;
