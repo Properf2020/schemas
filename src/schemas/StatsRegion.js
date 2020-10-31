@@ -239,6 +239,6 @@ statsRegionSchema.pre(/^find/, function (next) {
   next();
 });
 
-const StatsRegion = mongoose.model('stats_region', statsRegionSchema);
+const StatsRegion = mongoose.model('stat_region', statsRegionSchema);
 
 module.exports = StatsRegion;

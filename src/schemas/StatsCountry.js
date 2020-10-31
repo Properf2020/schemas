@@ -237,6 +237,6 @@ statsCountrySchema.pre(/^find/, function (next) {
   next();
 });
 
-const StatsCountry = mongoose.model('stats_country', statsCountrySchema);
+const StatsCountry = mongoose.model('stat_country', statsCountrySchema);
 
 module.exports = StatsCountry;

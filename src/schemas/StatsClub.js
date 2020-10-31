@@ -237,6 +237,6 @@ statsClubSchema.pre(/^find/, function (next) {
   next();
 });
 
-const StatsClub = mongoose.model('stats_club', statsClubSchema);
+const StatsClub = mongoose.model('stat_club', statsClubSchema);
 
 module.exports = StatsClub;

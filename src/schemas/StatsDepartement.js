@@ -240,7 +240,7 @@ statsDepartementSchema.pre(/^find/, function (next) {
 });
 
 const StatsDepartement = mongoose.model(
-  'stats_department',
+  'stat_department',
   statsDepartementSchema
 );
 
