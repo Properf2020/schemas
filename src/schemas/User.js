@@ -32,7 +32,11 @@ const userSchema = new mongoose.Schema({
   swimmer: {
     type: mongoose.Schema.ObjectId,
     ref: 'swimmer',
-    unique: [true, 'Un compte est déjà relié a ce nageur']
+    unique: [true, 'Un compte est déjà relié a ce nageur'],
+  },
+  club: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'club',
   },
   group: Number,
   email: {
