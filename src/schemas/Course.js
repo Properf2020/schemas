@@ -7,26 +7,22 @@ const courseSchema = new mongoose.Schema({
     bassin: {
       type: String,
       enums: ['25M', '50M'],
-      required: [true, 'Une course doit avoir une taille de bassin'],
-      index: true
+      required: [true, 'Une course doit avoir une taille de bassin']
     },
     nage: {
       type: String,
       enums: ['NAGE_LIBRE', 'BRASSE', 'DOS', 'PAPILLON', 'QUATRE_NAGES'],
-      required: [true, 'Une course doit avoir un type de nage'],
-      index: true
+      required: [true, 'Une course doit avoir un type de nage']
     },
     distance: {
       type: String,
       enums: ['50M', '100M', '200M', '400M', '800M', '1500M'],
-      required: [true, 'Une course doit avoir une distance'],
-      index: true
+      required: [true, 'Une course doit avoir une distance']
     },
   },
   time: {
     type: Number,
-    required: [true, 'Une course doit avoir un temps'],
-    index: true
+    required: [true, 'Une course doit avoir un temps']
   },
   tempsPassages: {
     type: Map,
@@ -34,8 +30,7 @@ const courseSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
-    required: [true, 'Une course doit avoir une date'],
-    index: true
+    required: [true, 'Une course doit avoir une date']
   },
   season: {
     type: Number,
@@ -50,8 +45,7 @@ const courseSchema = new mongoose.Schema({
   place: { type: String, lowercase: true, trim: true },
   niveauCompetition: {
     type: String,
-    enums: ['DEP', 'REG', 'NAT', 'ZON', 'INT'],
-    index: true
+    enums: ['DEP', 'REG', 'NAT', 'ZON', 'INT']
     // required: [true, 'Une course doit avoir un niveau de compétition'],
   },
   swimmer: {
@@ -70,29 +64,25 @@ const courseSchema = new mongoose.Schema({
     _id: {
       type: mongoose.Types.ObjectId,
       ref: 'club',
-      required: [true, 'Un club doit avoir un identifiant FFN'],
-      index: true
+      required: [true, 'Un club doit avoir un identifiant FFN']
     },
     departement: {
       type: String,
       required: [true, 'Un club doit avoir un département'],
       trim: true,
-      enum: enums.EDepartement,
-      index: true
+      enum: enums.EDepartement
     },
     region: {
       type: String,
       required: [true, 'Un club doit avoir un région'],
       trim: true,
-      enum: enums.ERegion,
-      index: true
+      enum: enums.ERegion
     },
     country: {
       type: String,
       trim: true,
       enum: ['FRANCE'],
-      default: 'FRANCE',
-      index: true
+      default: 'FRANCE'
     },
   },
   notes: {
@@ -103,20 +93,17 @@ const courseSchema = new mongoose.Schema({
   },
   swimmerAge: {
     type: Number,
-    required: [true, "L'age du nageur doit etre fourni"],
-    index: true
+    required: [true, "L'age du nageur doit etre fourni"]
   },
   swimmerCategory: {
     type: String,
     required: [true, 'La catégory du nageur doit etre fournie'],
-    enums: ['AVENIRS', 'JEUNES', 'JUNIORS', 'SENIORS'],
-    index: true
+    enums: ['AVENIRS', 'JEUNES', 'JUNIORS', 'SENIORS']
   },
   swimmerSex: {
     type: String,
     required: [true, 'Le sexe du nageur doit etre fournie'],
-    enums: ['F', 'M'],
-    index: true
+    enums: ['F', 'M']
   },
 });
 
