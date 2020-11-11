@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   },
   roles: {
     type: [String],
-    enum: ['user', 'teacher', 'admin'],
+    enum: ['user', 'teacher', 'admin', 'super-admin'],
     default: ['user'],
   },
   teacher: {
@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema({
   swimmer: {
     type: mongoose.Schema.ObjectId,
     ref: 'swimmer',
-    unique: [true, 'Un compte est déjà relié a ce nageur'],
   },
   club: {
     type: mongoose.Schema.ObjectId,
