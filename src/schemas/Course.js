@@ -34,7 +34,7 @@ const courseSchema = new mongoose.Schema({
   },
   season: {
     type: Number,
-    min: [2000, 'La saison ne peut être inférieur à 2000'],
+    min: [1900, 'La saison ne peut être inférieur à 1900'],
     max: [
       new Date().getFullYear() + 1,
       `La saison ne peut être supérieur à ${new Date().getFullYear() + 1}`,
@@ -46,7 +46,6 @@ const courseSchema = new mongoose.Schema({
   niveauCompetition: {
     type: String,
     enums: ['DEP', 'REG', 'NAT', 'ZON', 'INT'],
-    index: true,
     // required: [true, 'Une course doit avoir un niveau de compétition'],
   },
   swimmer: {
