@@ -135,6 +135,32 @@ const statsCountrySchema = new mongoose.Schema({
       currentVarianceMarges: Number,
     },
   ],
+  statsByNote: [
+    {
+      note: Number,
+      numCourses: Number,
+      moyennePerf: Number,
+      maxPerf: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'course',
+      },
+      minPerf: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'course',
+      },
+      variancePerf: Number,
+      moyenneMarges: Number,
+      maxMarges: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'swimmer_marge',
+      },
+      minMarges: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'swimmer_marge',
+      },
+      varianceMarges: Number,
+    },
+  ],
 });
 
 statsCountrySchema.pre(/^find/, function (next) {
