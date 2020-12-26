@@ -64,27 +64,6 @@ const statsRegionSchema = new mongoose.Schema({
         ref: 'swimmer_marge',
       },
       varianceMarges: Number,
-      numCurrentCourses: Number,
-      currentMoyennePerf: Number,
-      currentMaxPerf: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'course',
-      },
-      currentMinPerf: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'course',
-      },
-      currentVariancePerf: Number,
-      currentMoyenneMarges: Number,
-      currentMaxMarges: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'swimmer_marge',
-      },
-      currentMinMarges: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'swimmer_marge',
-      },
-      currentVarianceMarges: Number,
     },
   ],
   statsByCategory: [
@@ -114,27 +93,6 @@ const statsRegionSchema = new mongoose.Schema({
         ref: 'swimmer_marge',
       },
       varianceMarges: Number,
-      numCurrentCourses: Number,
-      currentMoyennePerf: Number,
-      currentMaxPerf: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'course',
-      },
-      currentMinPerf: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'course',
-      },
-      currentVariancePerf: Number,
-      currentMoyenneMarges: Number,
-      currentMaxMarges: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'swimmer_marge',
-      },
-      currentMinMarges: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'swimmer_marge',
-      },
-      currentVarianceMarges: Number,
     },
   ],
   statsByNote: [
@@ -179,39 +137,15 @@ statsRegionSchema.pre(/^find/, function (next) {
   });
 
   this.populate({
-    path: 'statsByAge.maxMarge',
+    path: 'statsByAge.maxMarges',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
   });
 
   this.populate({
-    path: 'statsByAge.minMarge',
+    path: 'statsByAge.minMarges',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
-  this.populate({
-    path: 'statsByAge.currentMaxPerf',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
-  this.populate({
-    path: 'statsByAge.currentMinPerf',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
-  this.populate({
-    path: 'statsByAge.currentMaxMarge',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
-  this.populate({
-    path: 'statsByAge.currentMinMarge',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
   });
 
   this.populate({
@@ -227,41 +161,40 @@ statsRegionSchema.pre(/^find/, function (next) {
   });
 
   this.populate({
-    path: 'statsByCategory.maxMarge',
+    path: 'statsByCategory.maxMarges',
+    select:
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
+  });
+
+  this.populate({
+    path: 'statsByCategory.minMarges',
+    select:
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
+  });
+
+  this.populate({
+    path: 'statsByNote.maxPerf',
     select:
       '_id swimmer time tempsPassages date season niveauCompetition club notes',
   });
 
   this.populate({
-    path: 'statsByCategory.minMarge',
+    path: 'statsByNote.minPerf',
     select:
       '_id swimmer time tempsPassages date season niveauCompetition club notes',
   });
 
   this.populate({
-    path: 'statsByCategory.currentMaxPerf',
+    path: 'statsByNote.maxMarges',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
   });
 
   this.populate({
-    path: 'statsByCategory.currentMinPerf',
+    path: 'statsByNote.minMarges',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course',
   });
-
-  this.populate({
-    path: 'statsByCategory.currentMaxMarge',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
-  this.populate({
-    path: 'statsByCategory.currentMinMarge',
-    select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes',
-  });
-
   next();
 });
 
