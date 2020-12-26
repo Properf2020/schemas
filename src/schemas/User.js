@@ -43,13 +43,13 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     trim: true,
-    validate: [validator.isEmail, 'Email nom valide'],
+    validate: [validator.isEmail, 'Email non valide'],
   },
   phone: {
     type: String,
     lowercase: true,
     trim: true,
-    validate: [validator.isMobilePhone, 'Numéro de téléphone nom valide'],
+    validate: [validator.isMobilePhone, 'Numéro de téléphone non valide'],
   },
   password: {
     type: String,
