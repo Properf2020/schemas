@@ -53,7 +53,33 @@ const clubSchema = new mongoose.Schema({
       ref: 'swimmer',
     },
   ],
-  billsInformation: {
+  billing: {
+    type: {
+      type: String,
+      trim: true,
+      enum: ['PARTICULAR', 'PROFESSIONAL'],
+      default: 'PARTICULAR',
+    },
+    name: {
+      type: String,
+      trim: true
+    },
+    siret: {
+      type: String,
+      trim: true
+    },
+    phone: {
+      type: String,
+      trim: true
+    },
+    fax: {
+      type: String,
+      trim: true
+    },
+    email: {
+      type: String,
+      trim: true
+    },
     firstName: {
       type: String,
       trim: true
@@ -74,7 +100,15 @@ const clubSchema = new mongoose.Schema({
       type: String,
       trim: true
     },
-    countr: {
+    country: {
+      type: String,
+      trim: true
+    },
+    tva: {
+      type: String,
+      trim: true
+    },
+    status: {
       type: String,
       trim: true
     },
