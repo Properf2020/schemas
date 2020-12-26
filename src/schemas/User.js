@@ -45,6 +45,12 @@ const userSchema = new mongoose.Schema({
     trim: true,
     validate: [validator.isEmail, 'Email nom valide'],
   },
+  phone: {
+    type: String,
+    lowercase: true,
+    trim: true,
+    validate: [validator.isMobilePhone, 'Numéro de téléphone nom valide'],
+  },
   password: {
     type: String,
     required: [true, 'Renseignez un mot de passe'],
