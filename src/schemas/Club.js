@@ -36,9 +36,9 @@ const clubSchema = new mongoose.Schema({
     default: 'FRANCE',
   },
   plan: {
-    type: String,
-    enum: ['BASE'],
-    default: 'BASE',
+    type: Number,
+    default: 0,
+    min: 0,
     index: true
   },
   users: [
