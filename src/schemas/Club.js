@@ -53,6 +53,32 @@ const clubSchema = new mongoose.Schema({
       ref: 'swimmer',
     },
   ],
+  billsInformation: {
+    firstName: {
+      type: String,
+      trim: true
+    },
+    lastName: {
+      type: String,
+      trim: true
+    },
+    address: {
+      type: String,
+      trim: true
+    },
+    zipcode: {
+      type: String,
+      trim: true
+    },
+    city: {
+      type: String,
+      trim: true
+    },
+    countr: {
+      type: String,
+      trim: true
+    },
+  },
   bills: [
     {
       type: mongoose.Schema.ObjectId,
