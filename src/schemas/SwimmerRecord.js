@@ -41,7 +41,7 @@ swimmerRecordSchema.pre(/^find/, function (next) {
 
   this.populate({
     path: 'course',
-    select: '_id type date season time notes',
+    select: '_id type date season time notes swimmerAge swimmerCategory ',
   });
 
   next();
