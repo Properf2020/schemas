@@ -25,8 +25,7 @@ const courseSchema = new mongoose.Schema({
     required: [true, 'Une course doit avoir un temps'],
   },
   tempsPassages: {
-    type: Map,
-    of: Number,
+    type: Object,
   },
   date: {
     type: Date,
