@@ -43,6 +43,7 @@ const swimmerMargeSchema = new mongoose.Schema({
     required: [true, 'Le sexe du nageur doit etre fournie'],
     enums: ['F', 'M'],
   },
+  flag: Boolean,
   club: {
     name: {
       type: String,
