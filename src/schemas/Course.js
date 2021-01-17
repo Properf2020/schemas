@@ -104,6 +104,15 @@ const courseSchema = new mongoose.Schema({
     required: [true, 'Le sexe du nageur doit etre fournie'],
     enums: ['F', 'M'],
   },
+  videos: [String],
+  ressenti: {
+    type: Map,
+    of: String,
+  },
+  infos: {
+    type: Map,
+    of: String,
+  },
 });
 
 courseSchema.pre(/^find/, function (next) {
