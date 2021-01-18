@@ -110,8 +110,18 @@ const courseSchema = new mongoose.Schema({
     of: String,
   },
   infos: {
-    type: Map,
-    of: String,
+    course: {
+      type: Map,
+      of: [String],
+    },
+    depart: {
+      type: Map,
+      of: String,
+    },
+    virages: {
+      type: Map,
+      of: [String],
+    },
   },
 });
 
