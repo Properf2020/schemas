@@ -123,6 +123,7 @@ const courseSchema = new mongoose.Schema({
       of: [String],
     },
   },
+  flag: Boolean,
 });
 
 courseSchema.pre(/^find/, function (next) {

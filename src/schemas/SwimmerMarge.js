@@ -44,6 +44,7 @@ const swimmerMargeSchema = new mongoose.Schema({
     enums: ['F', 'M'],
   },
   flag: Boolean,
+  flagUniq: Boolean,
   club: {
     name: {
       type: String,
