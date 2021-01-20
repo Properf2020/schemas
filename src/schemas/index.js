@@ -11,4 +11,5 @@ module.exports = {
     SwimmerMarge: require('./SwimmerMarge'),
     SwimmerRecord: require('./SwimmerRecord'),
     User: require('./User'),
+    Session: require('./Session'),
 }
