@@ -29,8 +29,8 @@ const sessionSchema = new mongoose.Schema({
     },
     attendances: [{
         state: {
-            type: [String],
-            enum: ['ATTENDED', 'ABSENT', 'UNKNOWN'],
+            type: String,
+            enum: ['ATTENDED', 'ABSENT', 'LATE', 'UNKNOWN'],
             default: ['UNKNOWN'],
         },
         user: {
