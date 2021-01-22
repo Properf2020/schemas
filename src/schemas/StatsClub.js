@@ -125,73 +125,73 @@ statsClubSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByAge.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByAge.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByAge.maxMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
 
   this.populate({
     path: 'statsByAge.minMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
 
   this.populate({
     path: 'statsByCategory.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByCategory.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByCategory.maxMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
 
   this.populate({
     path: 'statsByCategory.minMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
 
   this.populate({
     path: 'statsByNote.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByNote.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
   });
 
   this.populate({
     path: 'statsByNote.maxMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
 
   this.populate({
     path: 'statsByNote.minMarges',
     select:
-      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory',
+      '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
   next();
 });
