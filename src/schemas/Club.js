@@ -119,6 +119,10 @@ const clubSchema = new mongoose.Schema({
       ref: 'bill',
     },
   ],
+  logo: {
+    type: String,
+    trim: true,
+  },
 });
 
 clubSchema.index({ name: 'text' });
