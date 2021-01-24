@@ -127,13 +127,13 @@ statsDepartementSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByAge.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByAge.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type type',
   });
 
   this.populate({
@@ -151,13 +151,13 @@ statsDepartementSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByCategory.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByCategory.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
@@ -175,13 +175,13 @@ statsDepartementSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByNote.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByNote.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({

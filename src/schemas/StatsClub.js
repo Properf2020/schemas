@@ -125,13 +125,13 @@ statsClubSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByAge.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByAge.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type type',
   });
 
   this.populate({
@@ -149,13 +149,13 @@ statsClubSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByCategory.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByCategory.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
@@ -173,13 +173,13 @@ statsClubSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'statsByNote.maxPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
     path: 'statsByNote.minPerf',
     select:
-      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag',
+      '_id swimmer time tempsPassages date season niveauCompetition club notes swimmerAge swimmerCategory flag type',
   });
 
   this.populate({
@@ -193,6 +193,7 @@ statsClubSchema.pre(/^find/, function (next) {
     select:
       '_id swimmer marge date season swimmerAge swimmerCategory swimmerSex club course swimmerAge swimmerCategory flagUniq',
   });
+
   next();
 });
 
