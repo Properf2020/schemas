@@ -49,6 +49,11 @@ const sessionSchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Une session doit avoir un groupe'],
   },
+  custom: Boolean,
+  student: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'user',
+  },
   attendances: [
     {
       state: {
